@@ -1,0 +1,52 @@
+2026-01-02 13:47:50 | INFO     | __main__ | base.py:21 | 通用模型启动：你好！我是小明，是一个通用的问答助手。我可以帮助你解答各种问题，比如学习上的难题、生活中的疑问，或者提供一些实用的建议和信息。无论你想了解科学知识、查找资料，还是需要写点什么，我都会尽力帮忙。有什么我可以帮到你的吗？😊
+2026-01-02 13:49:38 | INFO     | __main__ | base.py:22 | 通用模型启动：ChatCompletion(id='chatcmpl-2177a38c-aa37-92f2-9cf4-e5f68475737c', choices=[Choice(finish_reason='stop', index=0, logprobs=None, message=ChatCompletionMessage(content='你好！我是小明，是一个通用的问答助手。我可以帮助你解答各种问题，比如学习上的难题、生活中的困惑、科技和文化知识，甚至是提供建议和想法。无论你想了解什么，都可以问我哦！😊', refusal=None, role='assistant', annotations=None, audio=None, function_call=None, tool_calls=None))], created=1767332978, model='qwen-plus', object='chat.completion', service_tier=None, system_fingerprint=None, usage=CompletionUsage(completion_tokens=51, prompt_tokens=39, total_tokens=90, completion_tokens_details=None, prompt_tokens_details=PromptTokensDetails(audio_tokens=None, cached_tokens=0)))
+2026-01-02 14:37:03 | INFO     | __main__ | base.py:28 | 调用通用模型: 你好呀！我是小明，很高兴认识你～ 🌟
+
+我是一个超级喜欢学习和帮助别人的AI助理。不管是写个故事、编个程序，还是聊聊天、想办法，我都特别乐意帮忙。我觉得每天都能学到新东西，真的太有趣啦！
+
+我最喜欢的就是和朋友们一起解决问题，把复杂的事情变得简单易懂。如果你有任何问题或者想法，都可以和我分享哦！我们可以一起探讨，一起进步。
+
+对了，我还特别喜欢用一些表情来表达心情，希望能让我们的对话更温暖更有意思呢 😊
+
+不知道你今天想聊些什么呢？我很期待能和你成为好朋友！
+2026-01-02 23:37:31 | INFO     | app.models.base_llm | base_llm.py:30 | LLM模型初始化成功: qwen-plus
+2026-01-02 23:37:31 | INFO     | __main__ | base.py:59 | LLMClient（LangGraph）初始化成功
+2026-01-02 23:37:31 | INFO     | __main__ | base.py:71 | 开始处理查询，thread_id: user_001
+2026-01-02 23:37:33 | INFO     | __main__ | base.py:91 | 查询处理完成
+2026-01-02 23:37:34 | INFO     | app.models.base_llm | base_llm.py:30 | LLM模型初始化成功: qwen-plus
+2026-01-02 23:37:34 | INFO     | __main__ | base.py:59 | LLMClient（LangGraph）初始化成功
+2026-01-02 23:37:34 | INFO     | __main__ | base.py:71 | 开始处理查询，thread_id: default_session
+2026-01-02 23:37:36 | INFO     | __main__ | base.py:91 | 查询处理完成
+2026-01-03 10:33:21 | INFO     | app.models.base_llm | base_llm.py:30 | LLM模型初始化成功: qwen-plus
+2026-01-03 10:33:21 | INFO     | __main__ | base.py:59 | LLMClient（LangGraph）初始化成功
+2026-01-03 10:33:21 | INFO     | __main__ | base.py:71 | 开始处理查询，thread_id: user_001
+2026-01-03 10:33:25 | INFO     | __main__ | base.py:91 | 查询处理完成
+2026-01-03 10:33:27 | INFO     | app.models.base_llm | base_llm.py:30 | LLM模型初始化成功: qwen-plus
+2026-01-03 10:33:27 | INFO     | __main__ | base.py:59 | LLMClient（LangGraph）初始化成功
+2026-01-03 10:33:27 | INFO     | __main__ | base.py:71 | 开始处理查询，thread_id: default_session
+2026-01-03 10:33:30 | INFO     | __main__ | base.py:91 | 查询处理完成
+2026-01-03 10:52:21 | INFO     | app.models.base_llm | base_llm.py:30 | LLM模型初始化成功: qwen-plus
+2026-01-03 10:52:21 | INFO     | __main__ | base.py:59 | LLMClient（LangGraph）初始化成功
+2026-01-03 10:52:21 | INFO     | __main__ | base.py:71 | 开始处理查询，thread_id: user_001
+2026-01-03 10:52:24 | INFO     | __main__ | base.py:91 | 查询处理完成
+2026-01-03 10:52:24 | INFO     | app.models.base_llm | base_llm.py:30 | LLM模型初始化成功: qwen-plus
+2026-01-03 10:52:24 | INFO     | __main__ | base.py:59 | LLMClient（LangGraph）初始化成功
+2026-01-03 10:52:24 | INFO     | __main__ | base.py:71 | 开始处理查询，thread_id: default_session
+2026-01-03 10:52:28 | INFO     | __main__ | base.py:91 | 查询处理完成
+2026-01-03 11:10:03 | INFO     | app.models.base_llm | base_llm.py:30 | LLM模型初始化成功: qwen-plus
+2026-01-03 11:10:03 | INFO     | __main__ | base.py:58 | LLMClient（LangGraph）初始化成功
+2026-01-03 11:10:03 | INFO     | __main__ | base.py:70 | 开始处理查询，thread_id: user_001
+2026-01-03 11:10:06 | INFO     | __main__ | base.py:90 | 查询处理完成
+2026-01-03 11:13:10 | INFO     | app.models.base_llm | base_llm.py:30 | LLM模型初始化成功: qwen-plus
+2026-01-03 11:13:10 | INFO     | __main__ | base.py:58 | LLMClient（LangGraph）初始化成功
+2026-01-03 11:13:10 | INFO     | __main__ | base.py:70 | 开始处理查询，thread_id: user_001
+2026-01-03 11:13:12 | INFO     | __main__ | base.py:90 | 查询处理完成
+2026-01-03 11:13:42 | INFO     | app.models.base_llm | base_llm.py:30 | LLM模型初始化成功: qwen-plus
+2026-01-03 11:13:42 | INFO     | __main__ | base.py:58 | LLMClient（LangGraph）初始化成功
+2026-01-03 11:13:42 | INFO     | __main__ | base.py:70 | 开始处理查询，thread_id: user_001
+2026-01-03 11:19:23 | INFO     | __main__ | base.py:90 | 查询处理完成
+2026-01-03 12:42:31 | INFO     | app.models.base_llm | base_llm.py:30 | LLM模型初始化成功: qwen-plus
+2026-01-03 12:42:31 | INFO     | app.graphs.builder | builder.py:42 | 基础对话图构建完成
+2026-01-03 12:42:31 | INFO     | __main__ | ai_service.py:28 | LLMClient（LangGraph）初始化成功
+2026-01-03 12:42:31 | INFO     | __main__ | ai_service.py:51 | 开始处理查询，thread_id: user_001
+2026-01-03 12:42:33 | INFO     | __main__ | ai_service.py:71 | 查询处理完成
