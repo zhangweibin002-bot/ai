@@ -35,3 +35,34 @@
 ├── .env                        # 环境变量 (API_KEYS, DB_URL)
 ├── Dockerfile                  # 容器化部署
 └── alembic.ini                 # 数据库迁移配置文件
+
+app/
+├── graphs/                 # 🆕 LangGraph 图定义
+│   ├── __init__.py         # 模块导出
+│   ├── states.py           # 状态类型定义 (ChatState, AgentState)
+│   ├── nodes.py            # 节点函数 (chat_node, agent_node, tool_node)
+│   └── builder.py          # 图构建器 (build_chat_graph, build_agent_graph)
+│
+├── models/                 # 🔄 数据库模型（已重写）
+│   ├── base.py             # SQLAlchemy Base + 通用混入类
+│   ├── base_llm.py         # LLM 初始化配置
+│   ├── chat_history.py     # 聊天记录表（待实现）
+│   └── agent_config.py     # 智能体配置表（待实现）
+│
+├── services/               # 🔄 业务服务（已更新）
+│   ├── ai_service.py       # LLMClient + AgentClient
+│   ├── agent_manager.py    # 提示词管理
+│   └── chat_service.py     # 聊天业务逻辑（待实现）
+│
+├── api/                    # API 端点
+├── core/                   # 核心配置
+├── db/                     # 数据库连接
+└── schemas/                # Pydantic 模型
+
+
+uvicorn app.main:app --reload --port 3001
+
+
+
+
+

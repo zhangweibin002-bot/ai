@@ -65,9 +65,9 @@ def agent_node(state: AgentState, config: RunnableConfig) -> dict:
     return {"messages": [response]}
 
 
-def tool_node(state: AgentState, config: RunnableConfig) -> dict:
+async def tool_node(state: AgentState, config: RunnableConfig) -> dict:
     """
-    工具执行节点（自定义版本，带详细日志）
+    工具执行节点（自定义版本，带详细日志，异步）
     
     执行 LLM 返回的工具调用，并记录详细日志
     
@@ -107,8 +107,8 @@ def tool_node(state: AgentState, config: RunnableConfig) -> dict:
                 # 记录开始时间
                 start_time = time.time()
                 
-                # 执行工具
-                result = tool.invoke(tool_args)
+                # 执行工具（异步）
+                result = await tool.ainvoke(tool_args)
                 
                 # 计算耗时
                 elapsed_time = time.time() - start_time

@@ -1,0 +1,750 @@
+2026-01-03 17:14:08 | ERROR    | app.api.v1.endpoints.sessions | sessions.py:89 | 创建会话失败: 'active' is not among the defined enum values. Enum name: sessionstatus. Possible values: ACTIVE, ARCHIVED, DELETED
+Traceback (most recent call last):
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1709, in _object_value_for_elem
+    return self._object_lookup[elem]  # type: ignore[return-value]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 'active'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\api\v1\endpoints\sessions.py", line 73, in create_session
+    session = service.create_session(
+        title=request.title,
+        agent_id=request.agent_id,
+    )
+  File "C:\Users\get\Desktop\代码\AI_agents\app\services\session_service.py", line 48, in create_session
+    self.db.refresh(session)
+    ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 3154, in refresh
+    loading.load_on_ident(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<10 lines>...
+        is_user_refresh=True,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\loading.py", line 510, in load_on_ident
+    return load_on_pk_identity(
+        session,
+    ...<11 lines>...
+        is_user_refresh=is_user_refresh,
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\loading.py", line 706, in load_on_pk_identity
+    return result.one()
+           ~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\result.py", line 1815, in one
+    return self._only_one_row(
+           ~~~~~~~~~~~~~~~~~~^
+        raise_for_second_row=True, raise_for_none=True, scalar=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\result.py", line 757, in _only_one_row
+    row: Optional[_InterimRowType[Any]] = onerow(hard_close=True)
+                                          ~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\result.py", line 1678, in _fetchone_impl
+    return self._real_result._fetchone_impl(hard_close=hard_close)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\result.py", line 2264, in _fetchone_impl
+    row = next(self.iterator, _NO_ROW)
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\loading.py", line 220, in chunks
+    fetch = cursor._raw_all_rows()
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\result.py", line 541, in _raw_all_rows
+    return [make_row(row) for row in rows]
+            ~~~~~~~~^^^^^
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 22, in sqlalchemy.cyextension.resultproxy.BaseRow.__init__
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 79, in sqlalchemy.cyextension.resultproxy._apply_processors
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1829, in process
+    value = self._object_value_for_elem(value)
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\dialects\mysql\enumerated.py", line 110, in _object_value_for_elem
+    return super()._object_value_for_elem(elem)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1711, in _object_value_for_elem
+    raise LookupError(
+    ...<7 lines>...
+    ) from err
+LookupError: 'active' is not among the defined enum values. Enum name: sessionstatus. Possible values: ACTIVE, ARCHIVED, DELETED
+2026-01-03 17:14:18 | ERROR    | app.api.v1.endpoints.sessions | sessions.py:89 | 创建会话失败: 'active' is not among the defined enum values. Enum name: sessionstatus. Possible values: ACTIVE, ARCHIVED, DELETED
+Traceback (most recent call last):
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1709, in _object_value_for_elem
+    return self._object_lookup[elem]  # type: ignore[return-value]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 'active'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\api\v1\endpoints\sessions.py", line 73, in create_session
+    session = service.create_session(
+        title=request.title,
+        agent_id=request.agent_id,
+    )
+  File "C:\Users\get\Desktop\代码\AI_agents\app\services\session_service.py", line 48, in create_session
+    self.db.refresh(session)
+    ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 3154, in refresh
+    loading.load_on_ident(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<10 lines>...
+        is_user_refresh=True,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\loading.py", line 510, in load_on_ident
+    return load_on_pk_identity(
+        session,
+    ...<11 lines>...
+        is_user_refresh=is_user_refresh,
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\loading.py", line 706, in load_on_pk_identity
+    return result.one()
+           ~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\result.py", line 1815, in one
+    return self._only_one_row(
+           ~~~~~~~~~~~~~~~~~~^
+        raise_for_second_row=True, raise_for_none=True, scalar=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\result.py", line 757, in _only_one_row
+    row: Optional[_InterimRowType[Any]] = onerow(hard_close=True)
+                                          ~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\result.py", line 1678, in _fetchone_impl
+    return self._real_result._fetchone_impl(hard_close=hard_close)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\result.py", line 2264, in _fetchone_impl
+    row = next(self.iterator, _NO_ROW)
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\loading.py", line 220, in chunks
+    fetch = cursor._raw_all_rows()
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\result.py", line 541, in _raw_all_rows
+    return [make_row(row) for row in rows]
+            ~~~~~~~~^^^^^
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 22, in sqlalchemy.cyextension.resultproxy.BaseRow.__init__
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 79, in sqlalchemy.cyextension.resultproxy._apply_processors
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1829, in process
+    value = self._object_value_for_elem(value)
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\dialects\mysql\enumerated.py", line 110, in _object_value_for_elem
+    return super()._object_value_for_elem(elem)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1711, in _object_value_for_elem
+    raise LookupError(
+    ...<7 lines>...
+    ) from err
+LookupError: 'active' is not among the defined enum values. Enum name: sessionstatus. Possible values: ACTIVE, ARCHIVED, DELETED
+2026-01-03 17:14:22 | ERROR    | app.api.v1.endpoints.sessions | sessions.py:89 | 创建会话失败: 'active' is not among the defined enum values. Enum name: sessionstatus. Possible values: ACTIVE, ARCHIVED, DELETED
+Traceback (most recent call last):
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1709, in _object_value_for_elem
+    return self._object_lookup[elem]  # type: ignore[return-value]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 'active'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\api\v1\endpoints\sessions.py", line 73, in create_session
+    session = service.create_session(
+        title=request.title,
+        agent_id=request.agent_id,
+    )
+  File "C:\Users\get\Desktop\代码\AI_agents\app\services\session_service.py", line 48, in create_session
+    self.db.refresh(session)
+    ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 3154, in refresh
+    loading.load_on_ident(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<10 lines>...
+        is_user_refresh=True,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\loading.py", line 510, in load_on_ident
+    return load_on_pk_identity(
+        session,
+    ...<11 lines>...
+        is_user_refresh=is_user_refresh,
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\loading.py", line 706, in load_on_pk_identity
+    return result.one()
+           ~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\result.py", line 1815, in one
+    return self._only_one_row(
+           ~~~~~~~~~~~~~~~~~~^
+        raise_for_second_row=True, raise_for_none=True, scalar=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\result.py", line 757, in _only_one_row
+    row: Optional[_InterimRowType[Any]] = onerow(hard_close=True)
+                                          ~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\result.py", line 1678, in _fetchone_impl
+    return self._real_result._fetchone_impl(hard_close=hard_close)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\result.py", line 2264, in _fetchone_impl
+    row = next(self.iterator, _NO_ROW)
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\loading.py", line 220, in chunks
+    fetch = cursor._raw_all_rows()
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\result.py", line 541, in _raw_all_rows
+    return [make_row(row) for row in rows]
+            ~~~~~~~~^^^^^
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 22, in sqlalchemy.cyextension.resultproxy.BaseRow.__init__
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 79, in sqlalchemy.cyextension.resultproxy._apply_processors
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1829, in process
+    value = self._object_value_for_elem(value)
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\dialects\mysql\enumerated.py", line 110, in _object_value_for_elem
+    return super()._object_value_for_elem(elem)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1711, in _object_value_for_elem
+    raise LookupError(
+    ...<7 lines>...
+    ) from err
+LookupError: 'active' is not among the defined enum values. Enum name: sessionstatus. Possible values: ACTIVE, ARCHIVED, DELETED
+2026-01-03 17:14:33 | ERROR    | app.api.v1.endpoints.chat | chat.py:123 | 聊天处理失败: 'active' is not among the defined enum values. Enum name: sessionstatus. Possible values: ACTIVE, ARCHIVED, DELETED
+Traceback (most recent call last):
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1709, in _object_value_for_elem
+    return self._object_lookup[elem]  # type: ignore[return-value]
+           ~~~~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 'active'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\api\v1\endpoints\chat.py", line 74, in chat
+    session = session_service.create_session()
+  File "C:\Users\get\Desktop\代码\AI_agents\app\services\session_service.py", line 48, in create_session
+    self.db.refresh(session)
+    ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 3154, in refresh
+    loading.load_on_ident(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        self,
+        ^^^^^
+    ...<10 lines>...
+        is_user_refresh=True,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\loading.py", line 510, in load_on_ident
+    return load_on_pk_identity(
+        session,
+    ...<11 lines>...
+        is_user_refresh=is_user_refresh,
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\loading.py", line 706, in load_on_pk_identity
+    return result.one()
+           ~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\result.py", line 1815, in one
+    return self._only_one_row(
+           ~~~~~~~~~~~~~~~~~~^
+        raise_for_second_row=True, raise_for_none=True, scalar=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\result.py", line 757, in _only_one_row
+    row: Optional[_InterimRowType[Any]] = onerow(hard_close=True)
+                                          ~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\result.py", line 1678, in _fetchone_impl
+    return self._real_result._fetchone_impl(hard_close=hard_close)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\result.py", line 2264, in _fetchone_impl
+    row = next(self.iterator, _NO_ROW)
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\loading.py", line 220, in chunks
+    fetch = cursor._raw_all_rows()
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\result.py", line 541, in _raw_all_rows
+    return [make_row(row) for row in rows]
+            ~~~~~~~~^^^^^
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 22, in sqlalchemy.cyextension.resultproxy.BaseRow.__init__
+  File "lib/sqlalchemy/cyextension/resultproxy.pyx", line 79, in sqlalchemy.cyextension.resultproxy._apply_processors
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1829, in process
+    value = self._object_value_for_elem(value)
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\dialects\mysql\enumerated.py", line 110, in _object_value_for_elem
+    return super()._object_value_for_elem(elem)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\sql\sqltypes.py", line 1711, in _object_value_for_elem
+    raise LookupError(
+    ...<7 lines>...
+    ) from err
+LookupError: 'active' is not among the defined enum values. Enum name: sessionstatus. Possible values: ACTIVE, ARCHIVED, DELETED
+2026-01-03 20:51:49 | ERROR    | app.main | main.py:65 | ❌ 智能体初始化失败: (pymysql.err.OperationalError) (1054, "Unknown column 'agent_configs.is_system' in 'field list'")
+[SQL: SELECT agent_configs.id AS agent_configs_id, agent_configs.name AS agent_configs_name, agent_configs.description AS agent_configs_description, agent_configs.system_prompt AS agent_configs_system_prompt, agent_configs.model_name AS agent_configs_model_name, agent_configs.temperature AS agent_configs_temperature, agent_configs.is_system AS agent_configs_is_system, agent_configs.is_active AS agent_configs_is_active, agent_configs.created_at AS agent_configs_created_at, agent_configs.updated_at AS agent_configs_updated_at 
+FROM agent_configs 
+WHERE agent_configs.id = %(id_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'id_1': 'general', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-03 20:52:02 | ERROR    | app.main | main.py:65 | ❌ 智能体初始化失败: (pymysql.err.OperationalError) (1054, "Unknown column 'agent_configs.is_system' in 'field list'")
+[SQL: SELECT agent_configs.id AS agent_configs_id, agent_configs.name AS agent_configs_name, agent_configs.description AS agent_configs_description, agent_configs.system_prompt AS agent_configs_system_prompt, agent_configs.model_name AS agent_configs_model_name, agent_configs.temperature AS agent_configs_temperature, agent_configs.is_system AS agent_configs_is_system, agent_configs.is_active AS agent_configs_is_active, agent_configs.created_at AS agent_configs_created_at, agent_configs.updated_at AS agent_configs_updated_at 
+FROM agent_configs 
+WHERE agent_configs.id = %(id_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'id_1': 'general', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-03 20:52:23 | ERROR    | app.main | main.py:65 | ❌ 智能体初始化失败: (pymysql.err.OperationalError) (1054, "Unknown column 'agent_configs.is_system' in 'field list'")
+[SQL: SELECT agent_configs.id AS agent_configs_id, agent_configs.name AS agent_configs_name, agent_configs.description AS agent_configs_description, agent_configs.system_prompt AS agent_configs_system_prompt, agent_configs.model_name AS agent_configs_model_name, agent_configs.temperature AS agent_configs_temperature, agent_configs.is_system AS agent_configs_is_system, agent_configs.is_active AS agent_configs_is_active, agent_configs.created_at AS agent_configs_created_at, agent_configs.updated_at AS agent_configs_updated_at 
+FROM agent_configs 
+WHERE agent_configs.id = %(id_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'id_1': 'general', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-03 20:52:48 | ERROR    | app.main | main.py:65 | ❌ 智能体初始化失败: (pymysql.err.OperationalError) (1054, "Unknown column 'agent_configs.is_system' in 'field list'")
+[SQL: SELECT agent_configs.id AS agent_configs_id, agent_configs.name AS agent_configs_name, agent_configs.description AS agent_configs_description, agent_configs.system_prompt AS agent_configs_system_prompt, agent_configs.model_name AS agent_configs_model_name, agent_configs.temperature AS agent_configs_temperature, agent_configs.is_system AS agent_configs_is_system, agent_configs.is_active AS agent_configs_is_active, agent_configs.created_at AS agent_configs_created_at, agent_configs.updated_at AS agent_configs_updated_at 
+FROM agent_configs 
+WHERE agent_configs.id = %(id_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'id_1': 'general', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-03 20:55:10 | ERROR    | app.main | main.py:65 | ❌ 智能体初始化失败: (pymysql.err.OperationalError) (1054, "Unknown column 'agent_configs.is_system' in 'field list'")
+[SQL: SELECT agent_configs.id AS agent_configs_id, agent_configs.name AS agent_configs_name, agent_configs.description AS agent_configs_description, agent_configs.system_prompt AS agent_configs_system_prompt, agent_configs.model_name AS agent_configs_model_name, agent_configs.temperature AS agent_configs_temperature, agent_configs.is_system AS agent_configs_is_system, agent_configs.is_active AS agent_configs_is_active, agent_configs.created_at AS agent_configs_created_at, agent_configs.updated_at AS agent_configs_updated_at 
+FROM agent_configs 
+WHERE agent_configs.id = %(id_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'id_1': 'general', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-03 20:55:20 | ERROR    | app.main | main.py:65 | ❌ 智能体初始化失败: (pymysql.err.OperationalError) (1054, "Unknown column 'agent_configs.is_system' in 'field list'")
+[SQL: SELECT agent_configs.id AS agent_configs_id, agent_configs.name AS agent_configs_name, agent_configs.description AS agent_configs_description, agent_configs.system_prompt AS agent_configs_system_prompt, agent_configs.model_name AS agent_configs_model_name, agent_configs.temperature AS agent_configs_temperature, agent_configs.is_system AS agent_configs_is_system, agent_configs.is_active AS agent_configs_is_active, agent_configs.created_at AS agent_configs_created_at, agent_configs.updated_at AS agent_configs_updated_at 
+FROM agent_configs 
+WHERE agent_configs.id = %(id_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'id_1': 'general', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-03 20:55:54 | ERROR    | app.main | main.py:65 | ❌ 智能体初始化失败: (pymysql.err.OperationalError) (1054, "Unknown column 'agent_configs.is_system' in 'field list'")
+[SQL: SELECT agent_configs.id AS agent_configs_id, agent_configs.name AS agent_configs_name, agent_configs.description AS agent_configs_description, agent_configs.system_prompt AS agent_configs_system_prompt, agent_configs.model_name AS agent_configs_model_name, agent_configs.temperature AS agent_configs_temperature, agent_configs.is_system AS agent_configs_is_system, agent_configs.is_active AS agent_configs_is_active, agent_configs.created_at AS agent_configs_created_at, agent_configs.updated_at AS agent_configs_updated_at 
+FROM agent_configs 
+WHERE agent_configs.id = %(id_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'id_1': 'general', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-03 20:57:08 | ERROR    | app.main | main.py:65 | ❌ 智能体初始化失败: (pymysql.err.OperationalError) (1054, "Unknown column 'agent_configs.is_system' in 'field list'")
+[SQL: SELECT agent_configs.id AS agent_configs_id, agent_configs.name AS agent_configs_name, agent_configs.description AS agent_configs_description, agent_configs.system_prompt AS agent_configs_system_prompt, agent_configs.model_name AS agent_configs_model_name, agent_configs.temperature AS agent_configs_temperature, agent_configs.is_system AS agent_configs_is_system, agent_configs.is_active AS agent_configs_is_active, agent_configs.created_at AS agent_configs_created_at, agent_configs.updated_at AS agent_configs_updated_at 
+FROM agent_configs 
+WHERE agent_configs.id = %(id_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'id_1': 'general', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-03 20:57:30 | ERROR    | app.main | main.py:65 | ❌ 智能体初始化失败: (pymysql.err.OperationalError) (1054, "Unknown column 'agent_configs.is_system' in 'field list'")
+[SQL: SELECT agent_configs.id AS agent_configs_id, agent_configs.name AS agent_configs_name, agent_configs.description AS agent_configs_description, agent_configs.system_prompt AS agent_configs_system_prompt, agent_configs.model_name AS agent_configs_model_name, agent_configs.temperature AS agent_configs_temperature, agent_configs.is_system AS agent_configs_is_system, agent_configs.is_active AS agent_configs_is_active, agent_configs.created_at AS agent_configs_created_at, agent_configs.updated_at AS agent_configs_updated_at 
+FROM agent_configs 
+WHERE agent_configs.id = %(id_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'id_1': 'general', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-03 20:57:44 | ERROR    | app.main | main.py:65 | ❌ 智能体初始化失败: (pymysql.err.OperationalError) (1054, "Unknown column 'agent_configs.is_system' in 'field list'")
+[SQL: SELECT agent_configs.id AS agent_configs_id, agent_configs.name AS agent_configs_name, agent_configs.description AS agent_configs_description, agent_configs.system_prompt AS agent_configs_system_prompt, agent_configs.model_name AS agent_configs_model_name, agent_configs.temperature AS agent_configs_temperature, agent_configs.is_system AS agent_configs_is_system, agent_configs.is_active AS agent_configs_is_active, agent_configs.created_at AS agent_configs_created_at, agent_configs.updated_at AS agent_configs_updated_at 
+FROM agent_configs 
+WHERE agent_configs.id = %(id_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'id_1': 'general', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-03 20:57:54 | ERROR    | app.main | main.py:65 | ❌ 智能体初始化失败: (pymysql.err.OperationalError) (1054, "Unknown column 'agent_configs.is_system' in 'field list'")
+[SQL: SELECT agent_configs.id AS agent_configs_id, agent_configs.name AS agent_configs_name, agent_configs.description AS agent_configs_description, agent_configs.system_prompt AS agent_configs_system_prompt, agent_configs.model_name AS agent_configs_model_name, agent_configs.temperature AS agent_configs_temperature, agent_configs.is_system AS agent_configs_is_system, agent_configs.is_active AS agent_configs_is_active, agent_configs.created_at AS agent_configs_created_at, agent_configs.updated_at AS agent_configs_updated_at 
+FROM agent_configs 
+WHERE agent_configs.id = %(id_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'id_1': 'general', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-03 21:16:17 | ERROR    | app.main | main.py:65 | ❌ 智能体初始化失败: (pymysql.err.OperationalError) (1054, "Unknown column 'agent_configs.is_system' in 'field list'")
+[SQL: SELECT agent_configs.id AS agent_configs_id, agent_configs.name AS agent_configs_name, agent_configs.description AS agent_configs_description, agent_configs.system_prompt AS agent_configs_system_prompt, agent_configs.model_name AS agent_configs_model_name, agent_configs.temperature AS agent_configs_temperature, agent_configs.is_system AS agent_configs_is_system, agent_configs.is_active AS agent_configs_is_active, agent_configs.created_at AS agent_configs_created_at, agent_configs.updated_at AS agent_configs_updated_at 
+FROM agent_configs 
+WHERE agent_configs.id = %(id_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'id_1': 'general', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-06 22:09:58 | ERROR    | app.agents.base | base.py:152 | [啊啊_1767708571] 流式处理时发生错误
+Traceback (most recent call last):
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+        pool_request.request
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_sync\http_proxy.py", line 288, in handle_request
+    connect_response = self._connection.handle_request(
+        connect_request
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\an\envs\tradingagents\Lib\site-packages\openai\_base_client.py", line 982, in request
+    response = self._client.send(
+        request,
+        stream=stream or self._should_stream_response_body(request=request),
+        **kwargs,
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\agents\base.py", line 139, in stream_chat
+    async for event in self.graph.astream_events(
+    ...<7 lines>...
+                yield content
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\base.py", line 1514, in astream_events
+    async for event in event_stream:
+        yield event
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\tracers\event_stream.py", line 1082, in _astream_events_implementation_v2
+    await task
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\tracers\event_stream.py", line 1037, in consume_astream
+    async for _ in event_streamer.tap_output_aiter(run_id, stream):
+        # All the content will be picked up
+        pass
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\tracers\event_stream.py", line 192, in tap_output_aiter
+    first = await anext(output, sentinel)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\pregel\main.py", line 2971, in astream
+    async for _ in runner.atick(
+    ...<13 lines>...
+            yield o
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\pregel\_runner.py", line 304, in atick
+    await arun_with_retry(
+    ...<15 lines>...
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\pregel\_retry.py", line 132, in arun_with_retry
+    async for _ in task.proc.astream(task.input, config):
+        pass
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\_internal\_runnable.py", line 839, in astream
+    output = await asyncio.create_task(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        _consume_aiter(aiterator), context=context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\_internal\_runnable.py", line 904, in _consume_aiter
+    async for chunk in it:
+    ...<8 lines>...
+            output = chunk
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\tracers\event_stream.py", line 192, in tap_output_aiter
+    first = await anext(output, sentinel)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\base.py", line 1587, in atransform
+    async for ichunk in input:
+    ...<14 lines>...
+                final = ichunk
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\base.py", line 1168, in astream
+    yield await self.ainvoke(input, config, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\_internal\_runnable.py", line 473, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\config.py", line 608, in run_in_executor
+    return await asyncio.get_running_loop().run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\config.py", line 599, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\get\Desktop\代码\AI_agents\app\graphs\nodes.py", line 36, in chat_node
+    response = llm.invoke(state["messages"])
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\language_models\chat_models.py", line 398, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1117, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\language_models\chat_models.py", line 927, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1178, in _generate_with_cache
+    for chunk in self._stream(messages, stop=stop, **kwargs):
+                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_openai\chat_models\base.py", line 1294, in _stream
+    response = self.client.create(**payload)
+  File "D:\an\envs\tradingagents\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+  File "D:\an\envs\tradingagents\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1192, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<47 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\openai\_base_client.py", line 1014, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+During task with name 'chat' and id '57fd4892-9e24-3d0c-0677-306e6c7433eb'
+2026-01-06 22:09:58 | ERROR    | app.api.v1.endpoints.chat | chat.py:120 | 流式处理失败: Connection error.
+Traceback (most recent call last):
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+        pool_request.request
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_sync\http_proxy.py", line 288, in handle_request
+    connect_response = self._connection.handle_request(
+        connect_request
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_sync\connection.py", line 101, in handle_request
+    raise exc
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_sync\connection.py", line 78, in handle_request
+    stream = self._connect(request)
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_sync\connection.py", line 124, in _connect
+    stream = self._network_backend.connect_tcp(**kwargs)
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_backends\sync.py", line 207, in connect_tcp
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\an\envs\tradingagents\Lib\site-packages\openai\_base_client.py", line 982, in request
+    response = self._client.send(
+        request,
+        stream=stream or self._should_stream_response_body(request=request),
+        **kwargs,
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\api\v1\endpoints\chat.py", line 98, in generate
+    async for chunk in agent.stream_chat(
+    ...<4 lines>...
+        yield f"data: {json.dumps({'type': 'content', 'content': chunk}, ensure_ascii=False)}\n\n"
+  File "C:\Users\get\Desktop\代码\AI_agents\app\agents\base.py", line 139, in stream_chat
+    async for event in self.graph.astream_events(
+    ...<7 lines>...
+                yield content
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\base.py", line 1514, in astream_events
+    async for event in event_stream:
+        yield event
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\tracers\event_stream.py", line 1082, in _astream_events_implementation_v2
+    await task
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\tracers\event_stream.py", line 1037, in consume_astream
+    async for _ in event_streamer.tap_output_aiter(run_id, stream):
+        # All the content will be picked up
+        pass
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\tracers\event_stream.py", line 192, in tap_output_aiter
+    first = await anext(output, sentinel)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\pregel\main.py", line 2971, in astream
+    async for _ in runner.atick(
+    ...<13 lines>...
+            yield o
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\pregel\_runner.py", line 304, in atick
+    await arun_with_retry(
+    ...<15 lines>...
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\pregel\_retry.py", line 132, in arun_with_retry
+    async for _ in task.proc.astream(task.input, config):
+        pass
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\_internal\_runnable.py", line 839, in astream
+    output = await asyncio.create_task(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        _consume_aiter(aiterator), context=context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\_internal\_runnable.py", line 904, in _consume_aiter
+    async for chunk in it:
+    ...<8 lines>...
+            output = chunk
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\tracers\event_stream.py", line 192, in tap_output_aiter
+    first = await anext(output, sentinel)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\base.py", line 1587, in atransform
+    async for ichunk in input:
+    ...<14 lines>...
+                final = ichunk
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\base.py", line 1168, in astream
+    yield await self.ainvoke(input, config, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\_internal\_runnable.py", line 473, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\config.py", line 608, in run_in_executor
+    return await asyncio.get_running_loop().run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\config.py", line 599, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\get\Desktop\代码\AI_agents\app\graphs\nodes.py", line 36, in chat_node
+    response = llm.invoke(state["messages"])
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\language_models\chat_models.py", line 398, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1117, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\language_models\chat_models.py", line 927, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1178, in _generate_with_cache
+    for chunk in self._stream(messages, stop=stop, **kwargs):
+                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_openai\chat_models\base.py", line 1294, in _stream
+    response = self.client.create(**payload)
+  File "D:\an\envs\tradingagents\Lib\site-packages\openai\_utils\_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+  File "D:\an\envs\tradingagents\Lib\site-packages\openai\resources\chat\completions\completions.py", line 1192, in create
+    return self._post(
+           ~~~~~~~~~~^
+        "/chat/completions",
+        ^^^^^^^^^^^^^^^^^^^^
+    ...<47 lines>...
+        stream_cls=Stream[ChatCompletionChunk],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\openai\_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\openai\_base_client.py", line 1014, in request
+    raise APIConnectionError(request=request) from err
+openai.APIConnectionError: Connection error.
+During task with name 'chat' and id '57fd4892-9e24-3d0c-0677-306e6c7433eb'
+2026-01-09 14:51:14 | ERROR    | app.main | main.py:77 | ❌ 智能体初始化失败: (pymysql.err.OperationalError) (1054, "Unknown column 'agent_configs.tools' in 'field list'")
+[SQL: SELECT agent_configs.id AS agent_configs_id, agent_configs.name AS agent_configs_name, agent_configs.description AS agent_configs_description, agent_configs.system_prompt AS agent_configs_system_prompt, agent_configs.model_name AS agent_configs_model_name, agent_configs.temperature AS agent_configs_temperature, agent_configs.tools AS agent_configs_tools, agent_configs.is_system AS agent_configs_is_system, agent_configs.is_active AS agent_configs_is_active, agent_configs.created_at AS agent_configs_created_at, agent_configs.updated_at AS agent_configs_updated_at 
+FROM agent_configs 
+WHERE agent_configs.id = %(id_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'id_1': 'general', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-09 14:54:59 | ERROR    | app.main | main.py:65 | ❌ 数据库初始化失败: (pymysql.err.OperationalError) (3780, "Referencing column 'session_id' and referenced column 'id' in foreign key constraint 'tool_executions_ibfk_1' are incompatible.")
+[SQL: 
+CREATE TABLE tool_executions (
+	id INTEGER NOT NULL AUTO_INCREMENT, 
+	session_id VARCHAR(50) NOT NULL COMMENT '会话ID', 
+	message_id INTEGER COMMENT '消息ID', 
+	tool_name VARCHAR(100) NOT NULL COMMENT '工具名称', 
+	tool_call_id VARCHAR(100) COMMENT '工具调用ID', 
+	input_params JSON COMMENT '输入参数', 
+	output_result TEXT COMMENT '输出结果', 
+	status VARCHAR(20) COMMENT '执行状态: success/failed/pending', 
+	error_message TEXT COMMENT '错误信息', 
+	execution_time INTEGER COMMENT '执行耗时(毫秒)', 
+	created_at DATETIME NOT NULL, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(session_id) REFERENCES sessions (id) ON DELETE CASCADE, 
+	FOREIGN KEY(message_id) REFERENCES chat_messages (id) ON DELETE CASCADE
+)
+
+]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-09 16:07:57 | ERROR    | app.graphs.nodes | nodes.py:130 |    ❌ 执行失败 | 错误: StructuredTool does not support sync invocation.

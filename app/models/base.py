@@ -5,8 +5,9 @@ SQLAlchemy 数据库模型基类
 """
 
 from datetime import datetime
-from sqlalchemy import Column, Integer, String, DateTime, Text
+from sqlalchemy import Column, Integer, DateTime
 from sqlalchemy.ext.declarative import declarative_base, declared_attr
+import re
 
 # SQLAlchemy Base 类
 Base = declarative_base()
@@ -36,31 +37,5 @@ class TableNameMixin:
     @declared_attr
     def __tablename__(cls):
         # UserProfile -> user_profile
-        import re
         name = re.sub(r'(?<!^)(?=[A-Z])', '_', cls.__name__).lower()
         return name
-
-
-class BaseModel(Base, TimestampMixin, TableNameMixin):
-    """
-    基础模型类
-    
-    所有 ORM 模型应继承此类，自动包含：
-    - id 主键
-    - created_at 创建时间
-    - updated_at 更新时间
-    - 自动表名
-    """
-    __abstract__ = True
-    
-    id = Column(Integer, primary_key=True, autoincrement=True, index=True)
-    
-    def to_dict(self):
-        """将模型转换为字典"""
-        return {
-            column.name: getattr(self, column.name)
-            for column in self.__table__.columns
-        }
-    
-    def __repr__(self):
-        return f"<{self.__class__.__name__}(id={self.id})>"
