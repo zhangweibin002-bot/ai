@@ -1,9 +1,0 @@
-{
-    "name": "Debug base module",
-    "type": "python",
-    "request": "launch",
-    "module": "app.models.base",        // ✅ 使用 module 而不是 program
-    "cwd": "${workspaceFolder}",        // ✅ 工作目录设置为项目根
-    "console": "integratedTerminal",
-    "justMyCode": true
-}

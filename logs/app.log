@@ -6448,3 +6448,23 @@ CREATE TABLE tool_executions (
 2026-01-09 17:03:22 | INFO     | app.services.agent_service | agent_service.py:255 | 从数据库加载 6 个智能体
 2026-01-09 17:03:22 | INFO     | app.main | main.py:41 | ✅ 已加载 6 个智能体: ['general', 'aa_1767941917', '计算专家_1767942957', '发_1767943467', '水电费_1767943572', '是否_1767943832']
 2026-01-09 17:03:22 | INFO     | app.main | main.py:79 | ==================================================
+2026-01-09 17:11:13 | INFO     | app.services.session_service | session_service.py:102 | 删除会话: fc3cb7d9_20260109164537
+2026-01-09 17:11:13 | INFO     | app.services.session_service | session_service.py:51 | 创建会话: 89121bf4_20260109171113
+2026-01-09 17:11:18 | INFO     | app.services.session_service | session_service.py:102 | 删除会话: 6a74b7b5_20260109164746
+2026-01-09 17:11:18 | INFO     | app.services.session_service | session_service.py:51 | 创建会话: e890d849_20260109171118
+2026-01-09 17:11:21 | INFO     | app.services.session_service | session_service.py:102 | 删除会话: 89121bf4_20260109171113
+2026-01-09 17:11:21 | INFO     | app.services.session_service | session_service.py:51 | 创建会话: 0b5629fa_20260109171121
+2026-01-09 17:11:23 | INFO     | app.services.session_service | session_service.py:102 | 删除会话: 0b5629fa_20260109171121
+2026-01-09 17:11:23 | INFO     | app.services.session_service | session_service.py:51 | 创建会话: 9aec3bb7_20260109171123
+2026-01-09 17:11:26 | INFO     | app.services.session_service | session_service.py:102 | 删除会话: 9aec3bb7_20260109171123
+2026-01-09 17:11:26 | INFO     | app.services.session_service | session_service.py:51 | 创建会话: 31900928_20260109171126
+2026-01-09 17:11:29 | INFO     | app.services.session_service | session_service.py:102 | 删除会话: 31900928_20260109171126
+2026-01-09 17:11:29 | INFO     | app.services.session_service | session_service.py:51 | 创建会话: d512f7f0_20260109171129
+2026-01-09 17:11:31 | INFO     | app.services.session_service | session_service.py:102 | 删除会话: e890d849_20260109171118
+2026-01-09 17:11:37 | INFO     | app.services.session_service | session_service.py:102 | 删除会话: feb9a9d3_20260109165343
+2026-01-09 17:11:37 | INFO     | app.services.session_service | session_service.py:51 | 创建会话: 4272a4d7_20260109171137
+2026-01-09 17:11:41 | INFO     | app.services.session_service | session_service.py:102 | 删除会话: d512f7f0_20260109171129
+2026-01-09 17:11:48 | INFO     | app.services.session_service | session_service.py:102 | 删除会话: 67333805_20260109164528
+2026-01-09 17:11:48 | INFO     | app.services.session_service | session_service.py:51 | 创建会话: 525207fc_20260109171148
+2026-01-09 17:12:12 | INFO     | app.services.session_service | session_service.py:51 | 创建会话: 03b20105_20260109171212
+2026-01-09 17:12:14 | INFO     | app.services.session_service | session_service.py:51 | 创建会话: 22d0e319_20260109171214
