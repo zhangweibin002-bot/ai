@@ -748,3 +748,939 @@ CREATE TABLE tool_executions (
 ]
 (Background on this error at: https://sqlalche.me/e/20/e3q8)
 2026-01-09 16:07:57 | ERROR    | app.graphs.nodes | nodes.py:130 |    ❌ 执行失败 | 错误: StructuredTool does not support sync invocation.
+2026-01-12 02:26:31 | ERROR    | app.services.tool_execution_service | tool_execution_service.py:73 | 保存工具执行记录失败: (pymysql.err.DataError) (1406, "Data too long for column 'output_result' at row 1")
+[SQL: INSERT INTO tool_executions (session_id, message_id, tool_name, tool_call_id, input_params, output_result, status, error_message, execution_time, created_at) VALUES (%(session_id)s, %(message_id)s, %(tool_name)s, %(tool_call_id)s, %(input_params)s, %(output_result)s, %(status)s, %(error_message)s, %(execution_time)s, %(created_at)s)]
+[parameters: {'session_id': 'e02c6300_20260112001013', 'message_id': 90, 'tool_name': 'web_search', 'tool_call_id': 'call_c7b39e6697cb419eb1b777', 'input_params': '{"query": ""}', 'output_result': '搜索 \'麻雀是什么\' 的结果：\n\nresults=[WebSearchResult(content=\'\\n 关于在香港和日本稱為「麻雀」的傳統四人棋牌遊戲，请见「 麻將 」。 \\n \\n \\n 麻雀 \\n \\n \\n \\n \\n \\n P. m. saturatus  ... (68048 characters truncated) ... .tw/Applications/Detail?category=20240529135424)", title=\'麻雀 - 國立臺灣博物館\', url=\'https://www.ntm.gov.tw/News_Publish_Content.aspx?n=5505&s=176471\')]', 'status': 'success', 'error_message': None, 'execution_time': 3451, 'created_at': datetime.datetime(2026, 1, 11, 18, 26, 31, 521788)}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+Traceback (most recent call last):
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 782, in _read_packet
+    packet.raise_for_error()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.DataError: (1406, "Data too long for column 'output_result' at row 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\services\tool_execution_service.py", line 66, in save_tool_execution
+    self.db.commit()
+    ~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 4466, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        base_mapper,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        insert,
+        ^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+        statement,
+        params,
+        execution_options=execution_options,
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\sql\elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 782, in _read_packet
+    packet.raise_for_error()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.DataError: (pymysql.err.DataError) (1406, "Data too long for column 'output_result' at row 1")
+[SQL: INSERT INTO tool_executions (session_id, message_id, tool_name, tool_call_id, input_params, output_result, status, error_message, execution_time, created_at) VALUES (%(session_id)s, %(message_id)s, %(tool_name)s, %(tool_call_id)s, %(input_params)s, %(output_result)s, %(status)s, %(error_message)s, %(execution_time)s, %(created_at)s)]
+[parameters: {'session_id': 'e02c6300_20260112001013', 'message_id': 90, 'tool_name': 'web_search', 'tool_call_id': 'call_c7b39e6697cb419eb1b777', 'input_params': '{"query": ""}', 'output_result': '搜索 \'麻雀是什么\' 的结果：\n\nresults=[WebSearchResult(content=\'\\n 关于在香港和日本稱為「麻雀」的傳統四人棋牌遊戲，请见「 麻將 」。 \\n \\n \\n 麻雀 \\n \\n \\n \\n \\n \\n P. m. saturatus  ... (68048 characters truncated) ... .tw/Applications/Detail?category=20240529135424)", title=\'麻雀 - 國立臺灣博物館\', url=\'https://www.ntm.gov.tw/News_Publish_Content.aspx?n=5505&s=176471\')]', 'status': 'success', 'error_message': None, 'execution_time': 3451, 'created_at': datetime.datetime(2026, 1, 11, 18, 26, 31, 521788)}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2026-01-12 02:26:31 | ERROR    | app.api.v1.endpoints.chat | chat.py:163 | 保存工具执行记录失败: (pymysql.err.DataError) (1406, "Data too long for column 'output_result' at row 1")
+[SQL: INSERT INTO tool_executions (session_id, message_id, tool_name, tool_call_id, input_params, output_result, status, error_message, execution_time, created_at) VALUES (%(session_id)s, %(message_id)s, %(tool_name)s, %(tool_call_id)s, %(input_params)s, %(output_result)s, %(status)s, %(error_message)s, %(execution_time)s, %(created_at)s)]
+[parameters: {'session_id': 'e02c6300_20260112001013', 'message_id': 90, 'tool_name': 'web_search', 'tool_call_id': 'call_c7b39e6697cb419eb1b777', 'input_params': '{"query": ""}', 'output_result': '搜索 \'麻雀是什么\' 的结果：\n\nresults=[WebSearchResult(content=\'\\n 关于在香港和日本稱為「麻雀」的傳統四人棋牌遊戲，请见「 麻將 」。 \\n \\n \\n 麻雀 \\n \\n \\n \\n \\n \\n P. m. saturatus  ... (68048 characters truncated) ... .tw/Applications/Detail?category=20240529135424)", title=\'麻雀 - 國立臺灣博物館\', url=\'https://www.ntm.gov.tw/News_Publish_Content.aspx?n=5505&s=176471\')]', 'status': 'success', 'error_message': None, 'execution_time': 3451, 'created_at': datetime.datetime(2026, 1, 11, 18, 26, 31, 521788)}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2026-01-12 19:04:12 | ERROR    | app.agents.base | base.py:219 | [general] 流式处理时发生错误
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\agents\base.py", line 153, in stream_chat
+    async for event in self.graph.astream_events(
+    ...<60 lines>...
+                        }
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\base.py", line 1514, in astream_events
+    async for event in event_stream:
+        yield event
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\tracers\event_stream.py", line 1082, in _astream_events_implementation_v2
+    await task
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\tracers\event_stream.py", line 1037, in consume_astream
+    async for _ in event_streamer.tap_output_aiter(run_id, stream):
+        # All the content will be picked up
+        pass
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\tracers\event_stream.py", line 192, in tap_output_aiter
+    first = await anext(output, sentinel)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\pregel\main.py", line 2971, in astream
+    async for _ in runner.atick(
+    ...<13 lines>...
+            yield o
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\pregel\_runner.py", line 304, in atick
+    await arun_with_retry(
+    ...<15 lines>...
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\pregel\_retry.py", line 132, in arun_with_retry
+    async for _ in task.proc.astream(task.input, config):
+        pass
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\_internal\_runnable.py", line 839, in astream
+    output = await asyncio.create_task(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        _consume_aiter(aiterator), context=context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\_internal\_runnable.py", line 904, in _consume_aiter
+    async for chunk in it:
+    ...<8 lines>...
+            output = chunk
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\tracers\event_stream.py", line 192, in tap_output_aiter
+    first = await anext(output, sentinel)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\base.py", line 1587, in atransform
+    async for ichunk in input:
+    ...<14 lines>...
+                final = ichunk
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\base.py", line 1587, in atransform
+    async for ichunk in input:
+    ...<14 lines>...
+                final = ichunk
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\base.py", line 1168, in astream
+    yield await self.ainvoke(input, config, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\_internal\_runnable.py", line 473, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\config.py", line 608, in run_in_executor
+    return await asyncio.get_running_loop().run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\config.py", line 599, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\get\Desktop\代码\AI_agents\app\graphs\nodes.py", line 63, in agent_node
+    response = llm_with_tools.invoke(state["messages"])
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\base.py", line 5557, in invoke
+    return self.bound.invoke(
+           ~~~~~~~~~~~~~~~~~^
+        input,
+        ^^^^^^
+        self._merge_configs(config),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **{**self.kwargs, **kwargs},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\language_models\chat_models.py", line 398, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1117, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\language_models\chat_models.py", line 927, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1178, in _generate_with_cache
+    for chunk in self._stream(messages, stop=stop, **kwargs):
+                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_openai\chat_models\base.py", line 1299, in _stream
+    for chunk in response:
+                 ^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\openai\_streaming.py", line 46, in __iter__
+    for item in self._iterator:
+                ^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\openai\_streaming.py", line 92, in __stream__
+    raise APIError(
+    ...<3 lines>...
+    )
+openai.APIError: Output data may contain inappropriate content. For details, see: https://help.aliyun.com/zh/model-studio/error-code#inappropriate-content
+During task with name 'agent' and id '996a61d9-9990-f8cb-33ea-55e49e975397'
+2026-01-12 19:04:12 | ERROR    | app.api.v1.endpoints.chat | chat.py:193 | 流式处理失败: Output data may contain inappropriate content. For details, see: https://help.aliyun.com/zh/model-studio/error-code#inappropriate-content
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\api\v1\endpoints\chat.py", line 106, in generate
+    async for event in agent.stream_chat(
+    ...<58 lines>...
+            yield f"data: {json.dumps(event, ensure_ascii=False)}\n\n"
+  File "C:\Users\get\Desktop\代码\AI_agents\app\agents\base.py", line 153, in stream_chat
+    async for event in self.graph.astream_events(
+    ...<60 lines>...
+                        }
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\base.py", line 1514, in astream_events
+    async for event in event_stream:
+        yield event
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\tracers\event_stream.py", line 1082, in _astream_events_implementation_v2
+    await task
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\tracers\event_stream.py", line 1037, in consume_astream
+    async for _ in event_streamer.tap_output_aiter(run_id, stream):
+        # All the content will be picked up
+        pass
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\tracers\event_stream.py", line 192, in tap_output_aiter
+    first = await anext(output, sentinel)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\pregel\main.py", line 2971, in astream
+    async for _ in runner.atick(
+    ...<13 lines>...
+            yield o
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\pregel\_runner.py", line 304, in atick
+    await arun_with_retry(
+    ...<15 lines>...
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\pregel\_retry.py", line 132, in arun_with_retry
+    async for _ in task.proc.astream(task.input, config):
+        pass
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\_internal\_runnable.py", line 839, in astream
+    output = await asyncio.create_task(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+        _consume_aiter(aiterator), context=context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\_internal\_runnable.py", line 904, in _consume_aiter
+    async for chunk in it:
+    ...<8 lines>...
+            output = chunk
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\tracers\event_stream.py", line 192, in tap_output_aiter
+    first = await anext(output, sentinel)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\base.py", line 1587, in atransform
+    async for ichunk in input:
+    ...<14 lines>...
+                final = ichunk
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\base.py", line 1587, in atransform
+    async for ichunk in input:
+    ...<14 lines>...
+                final = ichunk
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\base.py", line 1168, in astream
+    yield await self.ainvoke(input, config, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\_internal\_runnable.py", line 473, in ainvoke
+    ret = await self.afunc(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\config.py", line 608, in run_in_executor
+    return await asyncio.get_running_loop().run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\config.py", line 599, in wrapper
+    return func(*args, **kwargs)
+  File "C:\Users\get\Desktop\代码\AI_agents\app\graphs\nodes.py", line 63, in agent_node
+    response = llm_with_tools.invoke(state["messages"])
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\base.py", line 5557, in invoke
+    return self.bound.invoke(
+           ~~~~~~~~~~~~~~~~~^
+        input,
+        ^^^^^^
+        self._merge_configs(config),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        **{**self.kwargs, **kwargs},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\language_models\chat_models.py", line 398, in invoke
+    self.generate_prompt(
+    ~~~~~~~~~~~~~~~~~~~~^
+        [self._convert_input(input)],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    ).generations[0][0],
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1117, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\language_models\chat_models.py", line 927, in generate
+    self._generate_with_cache(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        m,
+        ^^
+    ...<2 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1178, in _generate_with_cache
+    for chunk in self._stream(messages, stop=stop, **kwargs):
+                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_openai\chat_models\base.py", line 1299, in _stream
+    for chunk in response:
+                 ^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\openai\_streaming.py", line 46, in __iter__
+    for item in self._iterator:
+                ^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\openai\_streaming.py", line 92, in __stream__
+    raise APIError(
+    ...<3 lines>...
+    )
+openai.APIError: Output data may contain inappropriate content. For details, see: https://help.aliyun.com/zh/model-studio/error-code#inappropriate-content
+During task with name 'agent' and id '996a61d9-9990-f8cb-33ea-55e49e975397'
+2026-01-12 19:43:36 | ERROR    | app.api.v1.endpoints.agents | agents.py:146 | 创建智能体失败: (pymysql.err.IntegrityError) (1062, "Duplicate entry '啊啊_1768218216' for key 'agent_configs.PRIMARY'")
+[SQL: INSERT INTO agent_configs (id, name, description, system_prompt, model_name, temperature, tools, is_system, is_active, created_at, updated_at) VALUES (%(id)s, %(name)s, %(description)s, %(system_prompt)s, %(model_name)s, %(temperature)s, %(tools)s, %(is_system)s, %(is_active)s, %(created_at)s, %(updated_at)s)]
+[parameters: {'id': '啊啊_1768218216', 'name': '啊啊', 'description': 'aa', 'system_prompt': 'aa', 'model_name': None, 'temperature': 0.7, 'tools': 'null', 'is_system': 0, 'is_active': 1, 'created_at': datetime.datetime(2026, 1, 12, 11, 43, 36, 517072), 'updated_at': datetime.datetime(2026, 1, 12, 11, 43, 36, 517077)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 782, in _read_packet
+    packet.raise_for_error()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry '啊啊_1768218216' for key 'agent_configs.PRIMARY'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\api\v1\endpoints\agents.py", line 127, in create_agent
+    config = service.create_agent(
+        name=request.name,
+    ...<2 lines>...
+        temperature=request.temperature or 0.7,
+    )
+  File "C:\Users\get\Desktop\代码\AI_agents\app\services\agent_service.py", line 71, in create_agent
+    self.db.commit()
+    ~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 4466, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        base_mapper,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        insert,
+        ^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1048, in _emit_insert_statements
+    result = connection.execute(
+        statement, multiparams, execution_options=execution_options
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\sql\elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 782, in _read_packet
+    packet.raise_for_error()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry '啊啊_1768218216' for key 'agent_configs.PRIMARY'")
+[SQL: INSERT INTO agent_configs (id, name, description, system_prompt, model_name, temperature, tools, is_system, is_active, created_at, updated_at) VALUES (%(id)s, %(name)s, %(description)s, %(system_prompt)s, %(model_name)s, %(temperature)s, %(tools)s, %(is_system)s, %(is_active)s, %(created_at)s, %(updated_at)s)]
+[parameters: {'id': '啊啊_1768218216', 'name': '啊啊', 'description': 'aa', 'system_prompt': 'aa', 'model_name': None, 'temperature': 0.7, 'tools': 'null', 'is_system': 0, 'is_active': 1, 'created_at': datetime.datetime(2026, 1, 12, 11, 43, 36, 517072), 'updated_at': datetime.datetime(2026, 1, 12, 11, 43, 36, 517077)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2026-01-12 19:43:36 | ERROR    | app.api.v1.endpoints.agents | agents.py:146 | 创建智能体失败: (pymysql.err.IntegrityError) (1062, "Duplicate entry '啊啊_1768218216' for key 'agent_configs.PRIMARY'")
+[SQL: INSERT INTO agent_configs (id, name, description, system_prompt, model_name, temperature, tools, is_system, is_active, created_at, updated_at) VALUES (%(id)s, %(name)s, %(description)s, %(system_prompt)s, %(model_name)s, %(temperature)s, %(tools)s, %(is_system)s, %(is_active)s, %(created_at)s, %(updated_at)s)]
+[parameters: {'id': '啊啊_1768218216', 'name': '啊啊', 'description': 'aa', 'system_prompt': 'aa', 'model_name': None, 'temperature': 0.7, 'tools': 'null', 'is_system': 0, 'is_active': 1, 'created_at': datetime.datetime(2026, 1, 12, 11, 43, 36, 696385), 'updated_at': datetime.datetime(2026, 1, 12, 11, 43, 36, 696391)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 782, in _read_packet
+    packet.raise_for_error()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry '啊啊_1768218216' for key 'agent_configs.PRIMARY'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\api\v1\endpoints\agents.py", line 127, in create_agent
+    config = service.create_agent(
+        name=request.name,
+    ...<2 lines>...
+        temperature=request.temperature or 0.7,
+    )
+  File "C:\Users\get\Desktop\代码\AI_agents\app\services\agent_service.py", line 71, in create_agent
+    self.db.commit()
+    ~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 4466, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        base_mapper,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        insert,
+        ^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1048, in _emit_insert_statements
+    result = connection.execute(
+        statement, multiparams, execution_options=execution_options
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\sql\elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 782, in _read_packet
+    packet.raise_for_error()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry '啊啊_1768218216' for key 'agent_configs.PRIMARY'")
+[SQL: INSERT INTO agent_configs (id, name, description, system_prompt, model_name, temperature, tools, is_system, is_active, created_at, updated_at) VALUES (%(id)s, %(name)s, %(description)s, %(system_prompt)s, %(model_name)s, %(temperature)s, %(tools)s, %(is_system)s, %(is_active)s, %(created_at)s, %(updated_at)s)]
+[parameters: {'id': '啊啊_1768218216', 'name': '啊啊', 'description': 'aa', 'system_prompt': 'aa', 'model_name': None, 'temperature': 0.7, 'tools': 'null', 'is_system': 0, 'is_active': 1, 'created_at': datetime.datetime(2026, 1, 12, 11, 43, 36, 696385), 'updated_at': datetime.datetime(2026, 1, 12, 11, 43, 36, 696391)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2026-01-12 19:43:36 | ERROR    | app.api.v1.endpoints.agents | agents.py:146 | 创建智能体失败: (pymysql.err.IntegrityError) (1062, "Duplicate entry '啊啊_1768218216' for key 'agent_configs.PRIMARY'")
+[SQL: INSERT INTO agent_configs (id, name, description, system_prompt, model_name, temperature, tools, is_system, is_active, created_at, updated_at) VALUES (%(id)s, %(name)s, %(description)s, %(system_prompt)s, %(model_name)s, %(temperature)s, %(tools)s, %(is_system)s, %(is_active)s, %(created_at)s, %(updated_at)s)]
+[parameters: {'id': '啊啊_1768218216', 'name': '啊啊', 'description': 'aa', 'system_prompt': 'aa', 'model_name': None, 'temperature': 0.7, 'tools': 'null', 'is_system': 0, 'is_active': 1, 'created_at': datetime.datetime(2026, 1, 12, 11, 43, 36, 871062), 'updated_at': datetime.datetime(2026, 1, 12, 11, 43, 36, 871068)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+Traceback (most recent call last):
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 782, in _read_packet
+    packet.raise_for_error()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry '啊啊_1768218216' for key 'agent_configs.PRIMARY'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\api\v1\endpoints\agents.py", line 127, in create_agent
+    config = service.create_agent(
+        name=request.name,
+    ...<2 lines>...
+        temperature=request.temperature or 0.7,
+    )
+  File "C:\Users\get\Desktop\代码\AI_agents\app\services\agent_service.py", line 71, in create_agent
+    self.db.commit()
+    ~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 4466, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        base_mapper,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        insert,
+        ^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1048, in _emit_insert_statements
+    result = connection.execute(
+        statement, multiparams, execution_options=execution_options
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\sql\elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 782, in _read_packet
+    packet.raise_for_error()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate entry '啊啊_1768218216' for key 'agent_configs.PRIMARY'")
+[SQL: INSERT INTO agent_configs (id, name, description, system_prompt, model_name, temperature, tools, is_system, is_active, created_at, updated_at) VALUES (%(id)s, %(name)s, %(description)s, %(system_prompt)s, %(model_name)s, %(temperature)s, %(tools)s, %(is_system)s, %(is_active)s, %(created_at)s, %(updated_at)s)]
+[parameters: {'id': '啊啊_1768218216', 'name': '啊啊', 'description': 'aa', 'system_prompt': 'aa', 'model_name': None, 'temperature': 0.7, 'tools': 'null', 'is_system': 0, 'is_active': 1, 'created_at': datetime.datetime(2026, 1, 12, 11, 43, 36, 871062), 'updated_at': datetime.datetime(2026, 1, 12, 11, 43, 36, 871068)}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)

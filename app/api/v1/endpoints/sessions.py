@@ -108,16 +108,26 @@ async def create_session(
 
 @router.get("", response_model=List[SessionResponse])
 async def list_sessions(
+    agent_id: Optional[str] = None,
     limit: int = 50,
     offset: int = 0,
     db: DBSession = Depends(get_db)
 ):
     """
     获取会话列表
+    
+    Args:
+        agent_id: 智能体ID（可选，传入则只返回该智能体的会话）
+        limit: 返回数量（默认50）
+        offset: 偏移量（默认0）
     """
     try:
         service = SessionService(db)
-        sessions = service.list_sessions(limit=limit, offset=offset)
+        sessions = service.list_sessions(
+            agent_id=agent_id,
+            limit=limit,
+            offset=offset
+        )
         
         return [
             SessionResponse(
@@ -247,3 +257,26 @@ async def delete_session(
         raise HTTPException(status_code=404, detail="会话不存在")
     
     return {"message": "会话已删除", "session_id": session_id}
+
+
+@router.get("/stats/by-agent")
+async def get_sessions_stats_by_agent(
+    db: DBSession = Depends(get_db)
+):
+    """
+    获取每个智能体的会话数量统计
+    
+    返回格式：
+    {
+        "general": 15,
+        "coder": 8,
+        "weather_expert": 3
+    }
+    """
+    try:
+        service = SessionService(db)
+        stats = service.get_sessions_count_by_agent()
+        return stats
+    except Exception as e:
+        logger.error(f"获取会话统计失败: {str(e)}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))

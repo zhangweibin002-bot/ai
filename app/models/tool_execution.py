@@ -3,6 +3,7 @@
 """
 from datetime import datetime
 from sqlalchemy import Column, String, Text, Integer, DateTime, JSON
+from sqlalchemy.dialects.mysql import LONGTEXT
 
 from app.models.base import Base
 

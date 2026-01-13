@@ -27,13 +27,13 @@ class CalculatorTool(BaseTool):
     
     # 支持的运算符
     OPERATORS = {
-        ast.Add: operator.add,
-        ast.Sub: operator.sub,
-        ast.Mult: operator.mul,
-        ast.Div: operator.truediv,
-        ast.Pow: operator.pow,
-        ast.Mod: operator.mod,
-        ast.FloorDiv: operator.floordiv,
+        ast.Add: operator.add,#加法 +
+        ast.Sub: operator.sub,#减法 -
+        ast.Mult: operator.mul,#乘法 *
+        ast.Div: operator.truediv,#除法 /
+        ast.Pow: operator.pow,#幂 **
+        ast.Mod: operator.mod,#取模 %
+        ast.FloorDiv: operator.floordiv,#整除 //
         ast.USub: operator.neg,  # 负号
     }
     

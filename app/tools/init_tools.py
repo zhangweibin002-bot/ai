@@ -6,6 +6,11 @@
 from app.core.logger import setup_logger
 from app.tools.registry import tool_registry
 from app.tools.calculator_tool import CalculatorTool
+from app.tools.search_tool import SearchTool
+from app.tools.datetime_tool import DateTimeTool
+from app.tools.gaode_weather_tool import GaodeWeatherTool
+from app.tools.gaode_geocode_tool import GaodeGeocodeTool
+from app.tools.gaode_route_tool import GaodeRouteTool
 
 logger = setup_logger(__name__)
 
@@ -23,9 +28,18 @@ def init_tools():
     # 注册计算器工具
     tool_registry.register(CalculatorTool())
     
+    # 注册网络搜索工具
+    tool_registry.register(SearchTool())
+    
+    # 注册日期时间工具
+    tool_registry.register(DateTimeTool())
+    
+    # 注册高德地图工具
+    tool_registry.register(GaodeWeatherTool())
+    tool_registry.register(GaodeGeocodeTool())
+    tool_registry.register(GaodeRouteTool())
+    
     # TODO: 未来在这里添加更多工具
-    # tool_registry.register(SearchTool())
-    # tool_registry.register(WeatherTool())
     
     # 显示注册结果
     summary = tool_registry.get_summary()

@@ -26,6 +26,12 @@ class Settings(BaseSettings):
     DB_USER: str = "root"
     DB_PASSWORD: str = "root"
     DB_NAME: str = "ai_agent"
+
+    # ===== Ollama API 配置 =====
+    OLLAMA_API_KEY: str
+    
+    # ===== 高德地图 API 配置 =====
+    GAODE_API_KEY: str = "03b1dacd0f6a0724d6621fb7c1a7c4e3"
     
     @property
     def DATABASE_URL(self) -> str:

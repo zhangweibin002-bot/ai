@@ -96,7 +96,7 @@ class ChatMessage(Base):
     session = relationship("Session", back_populates="messages")
     
     def to_dict(self):
-        return {
+        result = {
             "id": self.id,
             "session_id": self.session_id,
             "role": self.role,
@@ -105,3 +105,13 @@ class ChatMessage(Base):
             "tool_name": self.tool_name,
             "created_at": self.created_at.isoformat() if self.created_at else None,
         }
+        
+        # 如果有工具执行记录（动态加载），添加到返回结果
+        if hasattr(self, 'tool_executions') and self.tool_executions:
+            result["tool_executions"] = [
+                execution.to_dict() for execution in self.tool_executions
+            ]
+        else:
+            result["tool_executions"] = []
+        
+        return result

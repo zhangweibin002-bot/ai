@@ -75,14 +75,30 @@ class SessionService:
     def list_sessions(
         self, 
         user_id: str = "guest",
+        agent_id: Optional[str] = None,
         limit: int = 50,
         offset: int = 0
     ) -> List[Session]:
-        """获取用户的会话列表"""
-        return self.db.query(Session).filter(
+        """
+        获取用户的会话列表
+        
+        Args:
+            user_id: 用户ID
+            agent_id: 智能体ID（可选，传入则只返回该智能体的会话）
+            limit: 返回数量
+            offset: 偏移量
+        """
+        query = self.db.query(Session).filter(
             Session.user_id == user_id,
             Session.status == "active"  # 使用字符串
-        ).order_by(desc(Session.updated_at)).offset(offset).limit(limit).all()
+        )
+        
+        # 如果指定了 agent_id，则只查询该智能体的会话
+        if agent_id:
+            query = query.filter(Session.agent_id == agent_id)
+            logger.info(f"查询智能体 '{agent_id}' 的会话列表")
+        
+        return query.order_by(desc(Session.updated_at)).offset(offset).limit(limit).all()
     
     def update_session_title(self, session_id: str, title: str) -> Optional[Session]:
         """更新会话标题"""
@@ -211,3 +227,27 @@ class SessionService:
         if len(first_message) > 20:
             title += "..."
         return title
+    
+    def get_sessions_count_by_agent(self, user_id: str = "guest") -> dict:
+        """
+        获取每个智能体的会话数量统计
+        
+        Returns:
+            {
+                "agent_id_1": 5,
+                "agent_id_2": 3,
+                ...
+            }
+        """
+        from sqlalchemy import func
+        
+        result = self.db.query(
+            Session.agent_id,
+            func.count(Session.id).label('count')
+        ).filter(
+            Session.user_id == user_id,
+            Session.status == "active"
+        ).group_by(Session.agent_id).all()
+        
+        # 转换为字典
+        return {row.agent_id: row.count for row in result}
