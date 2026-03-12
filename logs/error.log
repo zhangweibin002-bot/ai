@@ -1684,3 +1684,558 @@ sqlalchemy.exc.IntegrityError: (pymysql.err.IntegrityError) (1062, "Duplicate en
 [SQL: INSERT INTO agent_configs (id, name, description, system_prompt, model_name, temperature, tools, is_system, is_active, created_at, updated_at) VALUES (%(id)s, %(name)s, %(description)s, %(system_prompt)s, %(model_name)s, %(temperature)s, %(tools)s, %(is_system)s, %(is_active)s, %(created_at)s, %(updated_at)s)]
 [parameters: {'id': '啊啊_1768218216', 'name': '啊啊', 'description': 'aa', 'system_prompt': 'aa', 'model_name': None, 'temperature': 0.7, 'tools': 'null', 'is_system': 0, 'is_active': 1, 'created_at': datetime.datetime(2026, 1, 12, 11, 43, 36, 871062), 'updated_at': datetime.datetime(2026, 1, 12, 11, 43, 36, 871068)}]
 (Background on this error at: https://sqlalche.me/e/20/gkpj)
+2026-01-13 10:46:06 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: Can't instantiate abstract class KBSearchTool without an implementation for abstract method 'get_input_schema'
+2026-01-13 10:46:14 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: Can't instantiate abstract class KBSearchTool without an implementation for abstract method 'get_input_schema'
+2026-01-13 10:46:32 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: Can't instantiate abstract class KBSearchTool without an implementation for abstract method 'get_input_schema'
+2026-01-13 10:48:04 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: Can't instantiate abstract class KBSearchTool without an implementation for abstract method 'get_input_schema'
+2026-01-13 10:48:10 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: Can't instantiate abstract class KBSearchTool without an implementation for abstract method 'get_input_schema'
+2026-01-13 10:48:28 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: Can't instantiate abstract class KBSearchTool without an implementation for abstract method 'get_input_schema'
+2026-01-13 10:49:13 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: Can't instantiate abstract class KBSearchTool without an implementation for abstract method 'get_input_schema'
+2026-01-13 10:57:30 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: Can't instantiate abstract class KBSearchTool without an implementation for abstract method 'get_input_schema'
+2026-01-13 11:22:59 | ERROR    | app.main | main.py:77 | ❌ 智能体初始化失败: When initializing mapper Mapper[KBDocument(kb_documents)], expression 'DocumentChunk' failed to locate a name ('DocumentChunk'). If this is a class name, consider adding this relationship() to the <class 'app.models.knowledge_base.KBDocument'> class after both dependent classes have been defined.
+2026-01-13 11:23:13 | ERROR    | app.main | main.py:77 | ❌ 智能体初始化失败: When initializing mapper Mapper[KBDocument(kb_documents)], expression 'DocumentChunk' failed to locate a name ('DocumentChunk'). If this is a class name, consider adding this relationship() to the <class 'app.models.knowledge_base.KBDocument'> class after both dependent classes have been defined.
+2026-01-13 11:23:24 | ERROR    | app.main | main.py:77 | ❌ 智能体初始化失败: When initializing mapper Mapper[KBDocument(kb_documents)], expression 'DocumentChunk' failed to locate a name ('DocumentChunk'). If this is a class name, consider adding this relationship() to the <class 'app.models.knowledge_base.KBDocument'> class after both dependent classes have been defined.
+2026-01-13 11:23:33 | ERROR    | app.main | main.py:65 | ❌ 数据库初始化失败: Attribute name 'metadata' is reserved when using the Declarative API.
+2026-01-13 11:23:33 | ERROR    | app.main | main.py:77 | ❌ 智能体初始化失败: When initializing mapper Mapper[KBDocument(kb_documents)], expression 'DocumentChunk' failed to locate a name ('DocumentChunk'). If this is a class name, consider adding this relationship() to the <class 'app.models.knowledge_base.KBDocument'> class after both dependent classes have been defined.
+2026-01-13 11:23:53 | ERROR    | app.main | main.py:65 | ❌ 数据库初始化失败: Attribute name 'metadata' is reserved when using the Declarative API.
+2026-01-13 11:23:53 | ERROR    | app.main | main.py:77 | ❌ 智能体初始化失败: When initializing mapper Mapper[KBDocument(kb_documents)], expression 'DocumentChunk' failed to locate a name ('DocumentChunk'). If this is a class name, consider adding this relationship() to the <class 'app.models.knowledge_base.KBDocument'> class after both dependent classes have been defined.
+2026-01-13 11:24:11 | ERROR    | app.main | main.py:65 | ❌ 数据库初始化失败: Attribute name 'metadata' is reserved when using the Declarative API.
+2026-01-13 11:24:12 | ERROR    | app.main | main.py:77 | ❌ 智能体初始化失败: When initializing mapper Mapper[KBDocument(kb_documents)], expression 'DocumentChunk' failed to locate a name ('DocumentChunk'). If this is a class name, consider adding this relationship() to the <class 'app.models.knowledge_base.KBDocument'> class after both dependent classes have been defined.
+2026-01-13 11:24:38 | ERROR    | app.main | main.py:65 | ❌ 数据库初始化失败: Attribute name 'metadata' is reserved when using the Declarative API.
+2026-01-13 11:24:38 | ERROR    | app.main | main.py:77 | ❌ 智能体初始化失败: When initializing mapper Mapper[KBDocument(kb_documents)], expression 'DocumentChunk' failed to locate a name ('DocumentChunk'). If this is a class name, consider adding this relationship() to the <class 'app.models.knowledge_base.KBDocument'> class after both dependent classes have been defined.
+2026-01-13 11:25:00 | ERROR    | app.main | main.py:65 | ❌ 数据库初始化失败: Attribute name 'metadata' is reserved when using the Declarative API.
+2026-01-13 11:25:00 | ERROR    | app.main | main.py:77 | ❌ 智能体初始化失败: When initializing mapper Mapper[KBDocument(kb_documents)], expression 'DocumentChunk' failed to locate a name ('DocumentChunk'). If this is a class name, consider adding this relationship() to the <class 'app.models.knowledge_base.KBDocument'> class after both dependent classes have been defined.
+2026-01-13 11:26:17 | ERROR    | app.main | main.py:65 | ❌ 数据库初始化失败: Attribute name 'metadata' is reserved when using the Declarative API.
+2026-01-13 11:26:17 | ERROR    | app.main | main.py:77 | ❌ 智能体初始化失败: When initializing mapper Mapper[KBDocument(kb_documents)], expression 'DocumentChunk' failed to locate a name ('DocumentChunk'). If this is a class name, consider adding this relationship() to the <class 'app.models.knowledge_base.KBDocument'> class after both dependent classes have been defined.
+2026-01-13 12:19:29 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 12:20:01 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 12:23:02 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 12:24:10 | ERROR    | app.api.v1.endpoints.knowledge_bases | knowledge_bases.py:303 | 文档上传失败: (pymysql.err.OperationalError) (1054, "Unknown column 'embedding_model' in 'field list'")
+[SQL: INSERT INTO kb_documents (kb_id, filename, file_type, file_path, file_size, content_preview, upload_status, chunk_strategy, chunk_size, chunk_overlap, chunk_count, process_status, process_error, embedding_model, total_tokens, process_start_time, process_end_time, process_duration, es_index_name, created_at, updated_at) VALUES (%(kb_id)s, %(filename)s, %(file_type)s, %(file_path)s, %(file_size)s, %(content_preview)s, %(upload_status)s, %(chunk_strategy)s, %(chunk_size)s, %(chunk_overlap)s, %(chunk_count)s, %(process_status)s, %(process_error)s, %(embedding_model)s, %(total_tokens)s, %(process_start_time)s, %(process_end_time)s, %(process_duration)s, %(es_index_name)s, %(created_at)s, %(updated_at)s)]
+[parameters: {'kb_id': 'kb_00655641', 'filename': '黄骅二期环评批复.pdf', 'file_type': 'pdf', 'file_path': 'uploads\\kb_00655641\\黄骅二期环评批复.pdf', 'file_size': 400656, 'content_preview': None, 'upload_status': 'uploaded', 'chunk_strategy': 'recursive', 'chunk_size': 500, 'chunk_overlap': 50, 'chunk_count': 0, 'process_status': 'pending', 'process_error': None, 'embedding_model': None, 'total_tokens': 0, 'process_start_time': None, 'process_end_time': None, 'process_duration': None, 'es_index_name': None, 'created_at': datetime.datetime(2026, 1, 13, 4, 24, 10, 145629), 'updated_at': datetime.datetime(2026, 1, 13, 4, 24, 10, 145634)}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 782, in _read_packet
+    packet.raise_for_error()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1054, "Unknown column 'embedding_model' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\api\v1\endpoints\knowledge_bases.py", line 264, in upload_document
+    doc = service.create_document(
+        kb_id=kb_id,
+    ...<7 lines>...
+        chunk_overlap=chunk_overlap
+    )
+  File "C:\Users\get\Desktop\代码\AI_agents\app\services\knowledge_base_service.py", line 250, in create_document
+    self.db.commit()
+    ~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 2030, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 1311, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 1286, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 4331, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 4466, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\session.py", line 4427, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        base_mapper,
+        ^^^^^^^^^^^^
+    ...<3 lines>...
+        insert,
+        ^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+        statement,
+        params,
+        execution_options=execution_options,
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1419, in execute
+    return meth(
+        self,
+        distilled_parameters,
+        execution_options or NO_OPTIONS,
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\sql\elements.py", line 527, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self, distilled_params, execution_options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+        dialect,
+    ...<8 lines>...
+        cache_hit=cache_hit,
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        dialect, context, statement, parameters
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        e, str_statement, effective_parameters, cursor, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 2363, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        cursor, str_statement, effective_parameters, context
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\sqlalchemy\engine\default.py", line 952, in do_execute
+    cursor.execute(statement, parameters)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+    ~~~~~~~~~~^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 575, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 826, in _read_query_result
+    result.read()
+    ~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 1203, in read
+    first_packet = self.connection._read_packet()
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\connections.py", line 782, in _read_packet
+    packet.raise_for_error()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\pymysql\err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'embedding_model' in 'field list'")
+[SQL: INSERT INTO kb_documents (kb_id, filename, file_type, file_path, file_size, content_preview, upload_status, chunk_strategy, chunk_size, chunk_overlap, chunk_count, process_status, process_error, embedding_model, total_tokens, process_start_time, process_end_time, process_duration, es_index_name, created_at, updated_at) VALUES (%(kb_id)s, %(filename)s, %(file_type)s, %(file_path)s, %(file_size)s, %(content_preview)s, %(upload_status)s, %(chunk_strategy)s, %(chunk_size)s, %(chunk_overlap)s, %(chunk_count)s, %(process_status)s, %(process_error)s, %(embedding_model)s, %(total_tokens)s, %(process_start_time)s, %(process_end_time)s, %(process_duration)s, %(es_index_name)s, %(created_at)s, %(updated_at)s)]
+[parameters: {'kb_id': 'kb_00655641', 'filename': '黄骅二期环评批复.pdf', 'file_type': 'pdf', 'file_path': 'uploads\\kb_00655641\\黄骅二期环评批复.pdf', 'file_size': 400656, 'content_preview': None, 'upload_status': 'uploaded', 'chunk_strategy': 'recursive', 'chunk_size': 500, 'chunk_overlap': 50, 'chunk_count': 0, 'process_status': 'pending', 'process_error': None, 'embedding_model': None, 'total_tokens': 0, 'process_start_time': None, 'process_end_time': None, 'process_duration': None, 'es_index_name': None, 'created_at': datetime.datetime(2026, 1, 13, 4, 24, 10, 145629), 'updated_at': datetime.datetime(2026, 1, 13, 4, 24, 10, 145634)}]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-01-13 12:28:42 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 12:31:14 | ERROR    | app.api.v1.endpoints.knowledge_bases | knowledge_bases.py:293 | 文档处理失败（文档已上传）: No module named 'app.services.document_processor_service'
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\api\v1\endpoints\knowledge_bases.py", line 280, in upload_document
+    from app.services.document_processing_service import DocumentProcessingService
+  File "C:\Users\get\Desktop\代码\AI_agents\app\services\document_processing_service.py", line 16, in <module>
+    from app.services.document_processor_service import document_processor
+ModuleNotFoundError: No module named 'app.services.document_processor_service'
+2026-01-13 12:33:04 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 12:33:44 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 12:34:18 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 12:34:51 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 12:35:24 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 12:38:05 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 12:43:56 | ERROR    | app.api.v1.endpoints.knowledge_bases | knowledge_bases.py:303 | 文档上传失败: [Errno 13] Permission denied: 'uploads\\kb_1db122e7'
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\api\v1\endpoints\knowledge_bases.py", line 244, in upload_document
+    with file_path.open("wb") as buffer:
+         ~~~~~~~~~~~~~~^^^^^^
+  File "D:\an\envs\tradingagents\Lib\pathlib\_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'uploads\\kb_1db122e7'
+2026-01-13 12:45:25 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 12:48:07 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 12:48:40 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 12:50:27 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 12:50:59 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 12:51:06 | ERROR    | app.api.v1.endpoints.knowledge_bases | knowledge_bases.py:293 | ❌ 文档处理失败: cannot import name 'ProcessStatus' from 'app.models.knowledge_base' (C:\Users\get\Desktop\代码\AI_agents\app\models\knowledge_base.py)
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\api\v1\endpoints\knowledge_bases.py", line 280, in upload_document
+    from app.services.document_processing_service import DocumentProcessingService
+  File "C:\Users\get\Desktop\代码\AI_agents\app\services\document_processing_service.py", line 22, in <module>
+    from app.models.knowledge_base import KBDocument, ProcessStatus
+ImportError: cannot import name 'ProcessStatus' from 'app.models.knowledge_base' (C:\Users\get\Desktop\代码\AI_agents\app\models\knowledge_base.py)
+2026-01-13 12:51:54 | ERROR    | app.api.v1.endpoints.knowledge_bases | knowledge_bases.py:293 | ❌ 文档处理失败: cannot import name 'ProcessStatus' from 'app.models.knowledge_base' (C:\Users\get\Desktop\代码\AI_agents\app\models\knowledge_base.py)
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\api\v1\endpoints\knowledge_bases.py", line 280, in upload_document
+    from app.services.document_processing_service import DocumentProcessingService
+  File "C:\Users\get\Desktop\代码\AI_agents\app\services\document_processing_service.py", line 22, in <module>
+    from app.models.knowledge_base import KBDocument, ProcessStatus
+ImportError: cannot import name 'ProcessStatus' from 'app.models.knowledge_base' (C:\Users\get\Desktop\代码\AI_agents\app\models\knowledge_base.py)
+2026-01-13 12:53:42 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 12:54:16 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 12:54:49 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 12:55:22 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 12:55:55 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 12:56:00 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 13:05:58 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 13:06:03 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 13:54:00 | ERROR    | app.api.v1.endpoints.knowledge_bases | knowledge_bases.py:398 | 文档处理失败: cannot import name 'embedding_service' from 'app.services.embedding_service' (C:\Users\get\Desktop\代码\AI_agents\app\services\embedding_service.py)
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\api\v1\endpoints\knowledge_bases.py", line 354, in process_document
+    from app.services.document_processing_service import DocumentProcessingService
+  File "C:\Users\get\Desktop\代码\AI_agents\app\services\document_processing_service.py", line 21, in <module>
+    from app.services.embedding_service import embedding_service
+ImportError: cannot import name 'embedding_service' from 'app.services.embedding_service' (C:\Users\get\Desktop\代码\AI_agents\app\services\embedding_service.py)
+2026-01-13 14:20:08 | ERROR    | app.core.es_client | es_client.py:201 | ❌ 索引创建失败: BadRequestError(400, 'illegal_argument_exception', 'unknown setting [index.knn] please check that any required plugins are installed, or check the breaking changes documentation for removed settings')
+2026-01-13 14:20:08 | ERROR    | __main__ | test_manual_es_insert.py:103 | ❌ 测试失败: BadRequestError(400, 'illegal_argument_exception', 'unknown setting [index.knn] please check that any required plugins are installed, or check the breaking changes documentation for removed settings')
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\test_manual_es_insert.py", line 24, in test_create_index_and_insert
+    result = es_index_manager.create_index(kb_id, vector_dim=1024)
+  File "C:\Users\get\Desktop\代码\AI_agents\app\core\es_client.py", line 197, in create_index
+    client.indices.create(index=index_name, body=index_mapping)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\elasticsearch\_sync\client\utils.py", line 458, in wrapped
+    return api(*args, **kwargs)
+  File "D:\an\envs\tradingagents\Lib\site-packages\elasticsearch\_sync\client\indices.py", line 701, in create
+    return self.perform_request(  # type: ignore[return-value]
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        "PUT",
+        ^^^^^^
+    ...<5 lines>...
+        path_parts=__path_parts,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\elasticsearch\_sync\client\_base.py", line 422, in perform_request
+    return self._client.perform_request(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        method,
+        ^^^^^^^
+    ...<5 lines>...
+        path_parts=path_parts,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\elasticsearch\_sync\client\_base.py", line 271, in perform_request
+    response = self._perform_request(
+        method,
+    ...<4 lines>...
+        otel_span=otel_span,
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\elasticsearch\_sync\client\_base.py", line 351, in _perform_request
+    raise HTTP_EXCEPTIONS.get(meta.status, ApiError)(
+        message=message, meta=meta, body=resp_body
+    )
+elasticsearch.BadRequestError: BadRequestError(400, 'illegal_argument_exception', 'unknown setting [index.knn] please check that any required plugins are installed, or check the breaking changes documentation for removed settings')
+2026-01-13 14:23:18 | ERROR    | app.api.v1.endpoints.knowledge_bases | knowledge_bases.py:398 | 文档处理失败: No module named 'elasticsearch'
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\api\v1\endpoints\knowledge_bases.py", line 354, in process_document
+    from app.services.document_processing_service import DocumentProcessingService
+  File "C:\Users\get\Desktop\代码\AI_agents\app\services\document_processing_service.py", line 22, in <module>
+    from app.core.es_client import es_index_manager
+  File "C:\Users\get\Desktop\代码\AI_agents\app\core\es_client.py", line 6, in <module>
+    from elasticsearch import Elasticsearch
+ModuleNotFoundError: No module named 'elasticsearch'
+2026-01-13 14:23:22 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 14:23:33 | ERROR    | app.api.v1.endpoints.knowledge_bases | knowledge_bases.py:398 | 文档处理失败: No module named 'elasticsearch'
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\api\v1\endpoints\knowledge_bases.py", line 354, in process_document
+    from app.services.document_processing_service import DocumentProcessingService
+  File "C:\Users\get\Desktop\代码\AI_agents\app\services\document_processing_service.py", line 22, in <module>
+    from app.core.es_client import es_index_manager
+  File "C:\Users\get\Desktop\代码\AI_agents\app\core\es_client.py", line 6, in <module>
+    from elasticsearch import Elasticsearch
+ModuleNotFoundError: No module named 'elasticsearch'
+2026-01-13 14:28:24 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 14:33:25 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 14:38:25 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 14:43:26 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 14:53:30 | ERROR    | app.main | main.py:71 | ❌ 工具初始化失败: No module named 'readability'
+2026-01-13 19:49:48 | ERROR    | app.services.embedding_service | embedding_service.py:92 | 调用 Jina API 失败: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)
+2026-01-13 19:49:48 | ERROR    | app.services.embedding_service | embedding_service.py:191 | 批量向量化失败: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)
+2026-01-13 19:49:48 | ERROR    | app.services.document_processing_service | document_processing_service.py:325 |    ❌ 向量化失败: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)
+2026-01-13 19:49:48 | ERROR    | app.services.document_processing_service | document_processing_service.py:147 | ❌ 文档处理失败: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)
+Traceback (most recent call last):
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+        pool_request.request
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_sync\http_proxy.py", line 316, in handle_request
+    stream = stream.start_tls(**kwargs)
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_sync\http11.py", line 376, in start_tls
+    return self._stream.start_tls(ssl_context, server_hostname, timeout)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\services\document_processing_service.py", line 110, in process_document
+    embeddings = self._vectorize_chunks(chunks, db_chunks)
+  File "C:\Users\get\Desktop\代码\AI_agents\app\services\document_processing_service.py", line 304, in _vectorize_chunks
+    embeddings = self.embedding_service.embed_batch(
+        texts=texts,
+        task="retrieval.passage",
+        show_progress=True
+    )
+  File "C:\Users\get\Desktop\代码\AI_agents\app\services\embedding_service.py", line 184, in embed_batch
+    batch_embeddings = self._call_api(batch, task=task)
+  File "C:\Users\get\Desktop\代码\AI_agents\app\services\embedding_service.py", line 72, in _call_api
+    response = self.client.post(
+        self.api_url,
+        json=payload,
+        headers=headers
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_client.py", line 1144, in post
+    return self.request(
+           ~~~~~~~~~~~~^
+        "POST",
+        ^^^^^^^
+    ...<11 lines>...
+        extensions=extensions,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)
+2026-01-13 19:49:48 | ERROR    | app.api.v1.endpoints.knowledge_bases | knowledge_bases.py:401 | 文档处理失败: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)
+Traceback (most recent call last):
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+        pool_request.request
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_sync\http_proxy.py", line 316, in handle_request
+    stream = stream.start_tls(**kwargs)
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_sync\http11.py", line 376, in start_tls
+    return self._stream.start_tls(ssl_context, server_hostname, timeout)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_backends\sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+         ~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\api\v1\endpoints\knowledge_bases.py", line 389, in process_document
+    result = processing_service.process_document(
+        doc_id=doc.id,
+    ...<2 lines>...
+        chunk_overlap=chunk_overlap
+    )
+  File "C:\Users\get\Desktop\代码\AI_agents\app\services\document_processing_service.py", line 110, in process_document
+    embeddings = self._vectorize_chunks(chunks, db_chunks)
+  File "C:\Users\get\Desktop\代码\AI_agents\app\services\document_processing_service.py", line 304, in _vectorize_chunks
+    embeddings = self.embedding_service.embed_batch(
+        texts=texts,
+        task="retrieval.passage",
+        show_progress=True
+    )
+  File "C:\Users\get\Desktop\代码\AI_agents\app\services\embedding_service.py", line 184, in embed_batch
+    batch_embeddings = self._call_api(batch, task=task)
+  File "C:\Users\get\Desktop\代码\AI_agents\app\services\embedding_service.py", line 72, in _call_api
+    response = self.client.post(
+        self.api_url,
+        json=payload,
+        headers=headers
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_client.py", line 1144, in post
+    return self.request(
+           ~~~~~~~~~~~~^
+        "POST",
+        ^^^^^^^
+    ...<11 lines>...
+        extensions=extensions,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+        request,
+    ...<2 lines>...
+        history=[],
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+        request,
+        follow_redirects=follow_redirects,
+        history=history,
+    )
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\an\envs\tradingagents\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "D:\an\envs\tradingagents\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)
+2026-01-13 22:15:03 | ERROR    | app.services.kb_retrieval_service | kb_retrieval_service.py:223 |       ❌ 检索失败: 'KBRetrievalService' object has no attribute 'rerank_enabled'
+2026-01-14 02:34:57 | ERROR    | app.agents.base | base.py:219 | [general] 流式处理时发生错误
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\agents\base.py", line 153, in stream_chat
+    async for event in self.graph.astream_events(
+    ...<60 lines>...
+                        }
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\base.py", line 1514, in astream_events
+    async for event in event_stream:
+        yield event
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\tracers\event_stream.py", line 1082, in _astream_events_implementation_v2
+    await task
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\tracers\event_stream.py", line 1037, in consume_astream
+    async for _ in event_streamer.tap_output_aiter(run_id, stream):
+        # All the content will be picked up
+        pass
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\tracers\event_stream.py", line 215, in tap_output_aiter
+    async for chunk in output:
+    ...<4 lines>...
+        yield chunk
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\pregel\main.py", line 3014, in astream
+    raise GraphRecursionError(msg)
+langgraph.errors.GraphRecursionError: Recursion limit of 25 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://docs.langchain.com/oss/python/langgraph/errors/GRAPH_RECURSION_LIMIT
+2026-01-14 02:34:57 | ERROR    | app.api.v1.endpoints.chat | chat.py:250 | 流式处理失败: Recursion limit of 25 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://docs.langchain.com/oss/python/langgraph/errors/GRAPH_RECURSION_LIMIT
+Traceback (most recent call last):
+  File "C:\Users\get\Desktop\代码\AI_agents\app\api\v1\endpoints\chat.py", line 163, in generate
+    async for event in agent.stream_chat(
+    ...<58 lines>...
+            yield f"data: {json.dumps(event, ensure_ascii=False)}\n\n"
+  File "C:\Users\get\Desktop\代码\AI_agents\app\agents\base.py", line 153, in stream_chat
+    async for event in self.graph.astream_events(
+    ...<60 lines>...
+                        }
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\runnables\base.py", line 1514, in astream_events
+    async for event in event_stream:
+        yield event
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\tracers\event_stream.py", line 1082, in _astream_events_implementation_v2
+    await task
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\tracers\event_stream.py", line 1037, in consume_astream
+    async for _ in event_streamer.tap_output_aiter(run_id, stream):
+        # All the content will be picked up
+        pass
+  File "D:\an\envs\tradingagents\Lib\site-packages\langchain_core\tracers\event_stream.py", line 215, in tap_output_aiter
+    async for chunk in output:
+    ...<4 lines>...
+        yield chunk
+  File "D:\an\envs\tradingagents\Lib\site-packages\langgraph\pregel\main.py", line 3014, in astream
+    raise GraphRecursionError(msg)
+langgraph.errors.GraphRecursionError: Recursion limit of 25 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://docs.langchain.com/oss/python/langgraph/errors/GRAPH_RECURSION_LIMIT
+2026-01-19 10:31:53 | ERROR    | app.core.es_client | es_client.py:69 | ❌ ES 连接失败: ping 不通
+2026-01-19 10:32:11 | ERROR    | app.services.kb_retrieval_service | kb_retrieval_service.py:234 |       ❌ 检索失败: Connection error caused by: ConnectionError(Connection error caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x00000283AFCADA70>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。))

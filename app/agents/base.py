@@ -142,7 +142,8 @@ class BaseAgent(ABC):
                     "thread_id": thread_id,
                     "llm": self.llm,
                     "tools": self.tools,
-                }
+                },
+                "recursion_limit": 50  # 增加递归限制，防止复杂任务超限
             }
             
             logger.info(f"[{self.id}] config['configurable']['tools'] 数量: {len(config['configurable']['tools'])}")

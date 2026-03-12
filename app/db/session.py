@@ -52,6 +52,8 @@ def init_db():
     from app.models import chat_history    # 导入模型以注册
     from app.models import agent_config    # 导入智能体配置模型
     from app.models import tool_execution  # 导入工具执行记录模型
+    from app.models import knowledge_base  # 导入知识库模型
+    from app.models import document_chunk  # 导入文档分块模型
     
     Base.metadata.create_all(bind=engine)
     logger.info("数据库表初始化完成")

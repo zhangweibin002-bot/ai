@@ -6,7 +6,7 @@ API 路由汇总
 
 from fastapi import APIRouter
 
-from app.api.v1.endpoints import chat, agents, users, sessions, tools
+from app.api.v1.endpoints import chat, agents, users, sessions, tools, knowledge_bases
 
 # 创建主路由
 api_router = APIRouter()
@@ -40,4 +40,10 @@ api_router.include_router(
     tools.router,
     prefix="/tools",
     tags=["工具"]
+)
+
+api_router.include_router(
+    knowledge_bases.router,
+    prefix="/knowledge-bases",
+    tags=["知识库"]
 )

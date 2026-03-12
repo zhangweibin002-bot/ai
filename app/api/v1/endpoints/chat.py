@@ -17,6 +17,7 @@ from app.db.session import get_db
 from app.agents import agent_registry
 from app.services.session_service import SessionService
 from app.services.tool_execution_service import ToolExecutionService
+from app.services.kb_retrieval_service import KBRetrievalService
 
 logger = setup_logger(__name__)
 router = APIRouter()
@@ -31,6 +32,7 @@ class ChatRequest(BaseModel):
     session_id: Optional[str] = None
     agent_id: Optional[str] = None      # 指定智能体
     system_prompt: Optional[str] = None  # 自定义提示词（覆盖智能体默认）
+    kb_ids: Optional[list[str]] = None   # 知识库ID列表（用户选择的知识库）
 
 
 # =====================
@@ -48,6 +50,7 @@ async def chat_stream(
     - **session_id**: 会话 ID（可选，不传则创建新会话）
     - **agent_id**: 智能体 ID（可选，默认使用 general）
     - **system_prompt**: 自定义系统提示词（可选，覆盖智能体默认提示词）
+    - **kb_ids**: 知识库 ID 列表（可选，传递用户选择的知识库）
     """
     try:
         session_service = SessionService(db)
@@ -70,19 +73,55 @@ async def chat_stream(
         session_id = session.id
         logger.info(f"处理流式聊天请求: session_id={session_id}, agent={agent.id}, is_new={is_new_session}")
         
-        # 3. 保存用户消息
+        # 3. 知识库检索（混合模式）
+        kb_context = None
+        kb_info = None
+        actual_query = request.message
+        
+        if request.kb_ids and len(request.kb_ids) > 0:
+            # 【模式 1: 强制使用知识库】
+            # 用户明确选择了知识库，立即检索并注入到上下文
+            logger.info(f"📚 [强制模式] 用户选择了 {len(request.kb_ids)} 个知识库: {request.kb_ids}")
+            kb_retrieval_service = KBRetrievalService(db)
+            
+            # 检索相关内容
+            retrieval_result = kb_retrieval_service.retrieve_context(
+                query=request.message,
+                kb_ids=request.kb_ids,
+                max_results=5
+            )
+            
+            if retrieval_result["context"]:
+                kb_context = retrieval_result["context"]
+                kb_info = {
+                    "kb_ids": request.kb_ids,
+                    "kb_names": retrieval_result["kb_names"],
+                    "sources": retrieval_result["sources"]
+                }
+                
+                # 将知识库上下文和用户查询组合
+                actual_query = f"{kb_context}\n\n用户问题：{request.message}"
+                logger.info(f"✅ 已添加知识库上下文，来源: {retrieval_result['kb_names']}")
+            else:
+                logger.info("⚠️ 未检索到相关知识库内容")
+        else:
+            # 【模式 2: 智能使用知识库】
+            # 用户未选择知识库，LLM 将根据需要自主调用 kb_search 工具
+            logger.info(f"🤖 [智能模式] 用户未选择知识库，LLM 将根据需要自主调用知识库检索工具")
+        
+        # 4. 保存用户消息
         session_service.add_message(
             session_id=session_id,
             role="user",
             content=request.message,
         )
         
-        # 4. 如果是新会话，生成标题
+        # 5. 如果是新会话，生成标题
         if is_new_session or not session.title or session.title == "新对话":
             title = session_service.generate_title(request.message)
             session_service.update_session_title(session_id, title)
         
-        # 5. 创建流式响应生成器
+        # 6. 创建流式响应生成器
         async def generate() -> AsyncGenerator[str, None]:
             full_response = ""
             tool_calls_record = []  # 记录工具调用
@@ -94,7 +133,25 @@ async def chat_stream(
                 tool_execution_service = ToolExecutionService(db)
                 
                 # 发送会话信息
-                yield f"data: {json.dumps({'type': 'session', 'session_id': session_id, 'agent_id': agent.id, 'agent_name': agent.name, 'is_new_session': is_new_session}, ensure_ascii=False)}\n\n"
+                session_data = {
+                    'type': 'session',
+                    'session_id': session_id,
+                    'agent_id': agent.id,
+                    'agent_name': agent.name,
+                    'is_new_session': is_new_session
+                }
+                yield f"data: {json.dumps(session_data, ensure_ascii=False)}\n\n"
+                
+                # 如果使用了知识库，发送知识库信息
+                if kb_info:
+                    kb_event = {
+                        'type': 'knowledge_base',
+                        'kb_ids': kb_info['kb_ids'],
+                        'kb_names': kb_info['kb_names'],
+                        'sources_count': len(kb_info['sources'])
+                    }
+                    yield f"data: {json.dumps(kb_event, ensure_ascii=False)}\n\n"
+                    logger.info(f"已发送知识库信息: {kb_info['kb_names']}")
                 
                 # 使用智能体的流式对话
                 # 如果提供了自定义 system_prompt，临时覆盖
@@ -104,7 +161,7 @@ async def chat_stream(
                 
                 try:
                     async for event in agent.stream_chat(
-                        query=request.message,
+                        query=actual_query,  # 使用包含知识库上下文的查询
                         thread_id=session_id,
                     ):
                         event_type = event["type"]
