@@ -2239,3 +2239,5 @@ langgraph.errors.GraphRecursionError: Recursion limit of 25 reached without hitt
 For troubleshooting, visit: https://docs.langchain.com/oss/python/langgraph/errors/GRAPH_RECURSION_LIMIT
 2026-01-19 10:31:53 | ERROR    | app.core.es_client | es_client.py:69 | ❌ ES 连接失败: ping 不通
 2026-01-19 10:32:11 | ERROR    | app.services.kb_retrieval_service | kb_retrieval_service.py:234 |       ❌ 检索失败: Connection error caused by: ConnectionError(Connection error caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x00000283AFCADA70>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。))
+2026-03-12 21:55:00 | ERROR    | app.core.es_client | es_client.py:69 | ❌ ES 连接失败: ping 不通
+2026-03-12 21:55:26 | ERROR    | app.services.kb_retrieval_service | kb_retrieval_service.py:234 |       ❌ 检索失败: Connection error caused by: ConnectionError(Connection error caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x000002041CA8AFD0>: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。))
